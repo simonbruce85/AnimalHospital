@@ -1,17 +1,42 @@
+import { async } from "@firebase/util";
+import { doc, onSnapshot, where, query, collection,getDocs } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
 import { FiSearch, FiCalendar } from "react-icons/fi";
 import { RiTimer2Line } from "react-icons/ri";
+import { UserAuth } from '../components/AuthContext';
+import { db } from "../firebase";
+import Dog from "./Dog";
 
 const History = () => {
-  const [time, setTime] = useState(new Date());
+  const [time, setTime] = useState([]);
+  const [dogs, setDogs] = useState([]);
+  const { user } = UserAuth();
+  const matrix = []
 
+  // useEffect(() => {
+  //   setInterval(() => setTime(new Date()), 1000);
+  // }, []);
+
+  // const date = `${time.getDate()}/${time.getMonth() + 1}/${time.getFullYear()}`;
+  // const times = `${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}`;
+  
   useEffect(() => {
-    setInterval(() => setTime(new Date()), 1000);
-  }, []);
+    dataCalla()
+  }, [user?.email]);
 
-  const date = `${time.getDate()}/${time.getMonth() + 1}/${time.getFullYear()}`;
-  const times = `${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}`;
+  const dataCalla = async () => {
+    try{
+      const querySnapshot = await getDocs(collection(db, "users"));
+      querySnapshot.forEach((doc) => {
+        matrix.push(doc.data())
+         })
+      setDogs(matrix)
 
+  console.log(matrix)
+    }catch (error){
+      console.log(error)
+    }
+  }
   return (
     <div className=" h-full w-full sm:ml-4  mt-4 mr-4">
       <div className="h-full border border-gray-900 text-white rounded-lg w-full ">
@@ -29,16 +54,30 @@ const History = () => {
           <div className=" hidden md:flex items-center justify-between px-4">
             <div className="text-gray-900 flex items-center px-2">
               <FiCalendar className="mr-1"/>
-              {date}
+              {/* {date} */}
             </div>
             <div className="text-gray-900 flex items-center px-2">
               <RiTimer2Line className="mr-1"/>
-              {times}
+              {/* {times} */}
             </div>
           </div>
         </div>
       </div>
+      {/*Container*/}
+      <div className="h-full w-full mt-4 flex flex-col"></div>
+      <div className="w-full grid grid-cols-3 text-gray-300 bg-gradient-to-r from-[#F06CA6] via-[#F58352] to-[#F06CA6] rounded-t-lg  justify-between p-2 h-full">
+        <p>Nombre del paciente</p>
+        <p>Nombre del dueno</p>
+        <p>Raza</p>
     </div>
+    <div className="border-x border-b border-black rounded-b-xl ">
+      {dogs?.map((item) => (
+            <Dog item={item}/>
+          ))}
+         
+         
+          </div>
+      </div>
   );
 };
 

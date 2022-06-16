@@ -6,7 +6,7 @@ import { FaBars, FaDog, FaTimes } from "react-icons/fa";
 import { Link,useNavigate } from "react-router-dom";
 import { UserAuth } from "../components/AuthContext";
 
-import Logo from "../assets/logo.png";
+import Logo from "../assets/dogLogo.png";
 
 const Sidebar = () => {
   const [nav, setNav] = useState(false);
@@ -27,12 +27,12 @@ const Sidebar = () => {
 
   return (
     <>
-      <div className=" flex w-full md:min-w-fit md:w-1/12 md:min-h-screen h-[50px] md:h-full bg-[#0b0b0b] md:flex-col pt-6 md:justify-between p-4">
+      <div className=" flex w-full md:min-w-fit md:w-1/12 md:min-h-screen h-[50px] md:h-full bg-gray-700 md:flex-col pt-6 md:justify-between p-4">
         <div className="hidden md:inline-block">
             <img
               src={Logo}
               alt="Logo Image"
-              style={{ width: "50px" }}
+              className="w-[100px]"
             />
         </div>
 
@@ -74,17 +74,17 @@ const Sidebar = () => {
           }
         >
           <li className="py-6 text-4xl text-gray-200">
-            <Link onClick={handleClick} to="home" smooth={true} duration={500}>
+            <Link onClick={handleClick} to="home" >
             Dashboard
             </Link>
           </li>
           <li className="py-6 text-4xl">
-            <Link onClick={handleClick} to="about" smooth={true} duration={500}>
+            <Link onClick={handleClick} to="about" >
             Consulta
             </Link>
           </li>
           <li className="py-6 text-4xl">
-            <Link onClick={handleClick} to="work" smooth={true} duration={500}>
+            <Link onClick={handleClick} to="work" >
             Registrar
             </Link>
           </li>
@@ -92,8 +92,6 @@ const Sidebar = () => {
             <Link
               onClick={handleClick}
               to="skills"
-              smooth={true}
-              duration={500}
             >
               Historial
             </Link>
