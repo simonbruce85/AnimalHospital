@@ -28,7 +28,7 @@ const Sidebar = () => {
   return (
     <>
       <div className=" flex w-full md:min-w-fit md:w-1/12 md:min-h-screen h-[50px] md:h-full bg-gray-700 md:flex-col pt-6 md:justify-between p-4">
-        <div className="hidden md:inline-block">
+        <div className="hidden md:inline-block hover:animate-bounce">
             <img
               src={Logo}
               alt="Logo Image"
@@ -41,7 +41,7 @@ const Sidebar = () => {
             <MdSpaceDashboard />
             <div className="hidden lg:inline-block pl-3" >Inicio</div>
           </li>
-          <li className="hidden md:flex my-4 px-1 text-gray-400 hover:text-gray-200 cursor-pointer hover:border-r-2  border-gray-200  justify-center lg:justify-start items-center">
+          <li className="hidden md:flex my-4 px-1 text-gray-400 hover:text-gray-200 cursor-pointer hover:border-r-2  border-gray-200  justify-center lg:justify-start items-center" onClick={() => navigate("/visit")}>
              <FaDog />
             <div className="hidden lg:inline-block pl-3">Consulta</div>
           </li>
@@ -73,28 +73,19 @@ const Sidebar = () => {
               : "absolute top-0 left-0 w-full h-screen bg-[#0b0b0b] flex flex-col justify-center items-center text-gray-200"
           }
         >
-          <li className="py-6 text-4xl text-gray-200">
-            <Link onClick={handleClick} to="home" >
+          <li className="py-6 text-4xl text-gray-200" onClick={() => navigate("/home")}  >
             Dashboard
-            </Link>
           </li>
-          <li className="py-6 text-4xl">
-            <Link onClick={handleClick} to="about" >
+          <li className="py-6 text-4xl" onClick={() => navigate("/visit")}  >
             Consulta
-            </Link>
           </li>
-          <li className="py-6 text-4xl">
-            <Link onClick={handleClick} to="work" >
+          <li className="py-6 text-4xl" onClick={() => navigate("/register")}>
             Registrar
-            </Link>
           </li>
-          <li className="py-6 text-4xl">
-            <Link
+          <li className="py-6 text-4xl"
               onClick={handleClick}
-              to="skills"
             >
               Historial
-            </Link>
           </li>
             <button className="py-6 text-4xl" onClick={handleLogout}>
               Salir

@@ -1,0 +1,204 @@
+import { async } from "@firebase/util";
+import {
+  arrayUnion,
+  doc,
+  onSnapshot,
+  setDoc,
+  updateDoc,
+} from "firebase/firestore";
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { UserAuth } from "../AuthContext";
+import "firebase/compat/firestore";
+import { collection, addDoc } from "firebase/firestore";
+import { db } from "../../firebase";
+
+import RegisterOwner from "./RegisterOwner";
+import RegisterDog from "./RegisterDog";
+import RegisterHistory from "./RegisterHistory";
+
+const RegisterNew = () => {
+  const [name, setName] = useState("");
+  const [ownersName, setOwnersName] = useState("");
+  const [breed, setBreed] = useState("");
+  const [birthday, setBirthday] = useState("");
+  const [weight, setWeight] = useState("");
+  const [notes, setNotes] = useState("");
+  const [address, setAddress] = useState("");
+  const [phone, setPhone] = useState("");
+  const [color, setColor] = useState("");
+  const navigate = useNavigate();
+
+
+
+  const [page, setPage] = useState(0);
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+    confirmPassword: "",
+    firstName: "",
+    lastName: "",
+    username: "",
+    nationality: "",
+    other: "",
+  });
+
+
+  const addDog = async (e) => {
+    e.preventDefault();
+    try {
+      await addDoc(collection(db, "users"), {
+        name: name,
+        ownersName: ownersName,
+        breed: breed,
+      });
+      setName("");
+      setOwnersName("");
+      setBreed("");
+      setWeight("");
+      setBirthday("");
+      setNotes("");
+      setAddress("");
+      setPhone("");
+      setColor("");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  
+    const FormTitles = ["Informacion de la Masctoa", "Informacion del dueño", "Historia Clinica"];
+  
+    const PageDisplay = () => {
+      if (page === 0) {
+        return <RegisterDog formData={formData} setFormData={setFormData} />;
+      } else if (page === 1) {
+        return <RegisterOwner formData={formData} setFormData={setFormData} />;
+      } else {
+        return <RegisterHistory formData={formData} setFormData={setFormData} />;
+      }
+    };
+  
+
+
+
+
+
+  return (
+      <div className="form">
+      <div className="progressbar">
+        <div
+          style={{ width: page === 0 ? "33.3%" : page == 1 ? "66.6%" : "100%" }}
+        ></div>
+      </div>
+      <div className="form-container">
+        <div className="header">
+          <h1>{FormTitles[page]}</h1>
+        </div>
+        <div className="body">{PageDisplay()}</div>
+        <div className="footer">
+          <button
+            disabled={page == 0}
+            onClick={() => {
+              setPage((currPage) => currPage - 1);
+            }}
+          >
+            Prev
+          </button>
+          <button
+            onClick={() => {
+              if (page === FormTitles.length - 1) {
+                alert("FORM SUBMITTED");
+                console.log(formData);
+              } else {
+                setPage((currPage) => currPage + 1);
+              }
+            }}
+          >
+            {page === FormTitles.length - 1 ? "Submit" : "Next"}
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default RegisterNew;
+
+
+
+
+
+import React from 'react'
+
+const RegisterDog = ({formData, setFormData}) => {
+  return (
+    <div className=" w-full h-screen flex justify-center items-center ">
+        <div className="flex flex-col w-1/2 rounded-lg border border-black font-black">
+          <form
+            className=" flex flex-col m-4  font-semibold "
+          >
+            <label>Nombre de la Mascota</label>
+            <input
+              onChange={(e) => setFormData({...formData, dogName: e.target.value})}
+              className="p-3 my-2 border border-black rounded "
+              placeholder="Nombre de la Mascota"
+              value={formData.name}
+              required
+              autoFocus
+            />
+            <label>Raza</label>
+            <input
+              onChange={(e) => setFormData({...formData, breed: e.target.value})}
+              className="p-3 my-2 border border-black rounded"
+              placeholder="Raza"
+              value={formData.breed}
+              required
+            />
+            <label>Color</label>
+            <input
+              onChange={(e) => setFormData({...formData, color: e.target.value})}
+              className="p-3 my-2 border border-black rounded"
+              placeholder="Color"
+              value={formData.color}
+            />
+            <label>Peso (Kg)</label>
+            <input
+              onChange={(e) => setFormData({...formData, weight: e.target.value})}
+              className="p-3 my-2 border border-black rounded"
+              placeholder="Peso"
+              value={formData.weight}
+              type="number"
+              min="0"
+              max="50"
+              step="0.1"
+            />
+            <label className="">Fecha de Nacimiento</label>
+            <input
+              onChange={(e) => setFormData({...formData, birthday: e.target.value})}
+              className="p-3 my-2 border border-black rounded"
+              type="date"
+              placeholder="dd-mm-yyyy"
+              value={formData.birthday}
+            />
+            <label className="">Notas</label>
+            <textarea
+              onChange={(e) => setFormData({...formData, notes: e.target.value})}
+              className="p-3 my-2 border border-black rounded"
+              type="date"
+              placeholder="Fecha de Nacimiento"
+              value={formData.notes}
+            />
+            <button
+              type="submit"
+              className="bg-gradient-to-r from-[#F06CA6] via-[#F58352] to-[#F06CA6] text-white py-3 my-6 rounded-full font-bold"
+            >
+              Añadir
+            </button>
+          </form>
+        </div>
+      </div>
+  )
+}
+
+export default RegisterDog

@@ -53,8 +53,8 @@ const Login = () => {
                   placeholder="Password"
                   autoComplete="current-password"
                 />
-                <button className="bg-red-600 py-3 my-6 rounded font-bold">
-                  Sign Up
+                <button className="bg-gradient-to-r from-[#F06CA6] via-[#F58352] to-[#F06CA6] py-3 my-6 rounded-full font-bold">
+                  Ingresar
                 </button>
                 <div className="flex justify-between items-center text-sm text-gray-600">
                   <p>
@@ -63,11 +63,6 @@ const Login = () => {
                   </p>
                   <p> Need Help?</p>
                 </div>
-                <p className="py-8 just">
-                  <span className="text-gray-600">New to Netflix?</span>
-                  {"  "}
-                  <Link to="/signup">Sign Up</Link>
-                </p>
               </form>
             </div>
           </div>
