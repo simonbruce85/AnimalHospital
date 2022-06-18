@@ -10,9 +10,9 @@ import {
 import React, { useEffect, useState } from "react";
 import { FiSearch, FiCalendar } from "react-icons/fi";
 import { RiTimer2Line } from "react-icons/ri";
-import { UserAuth } from "../components/AuthContext";
-import { db } from "../firebase";
-import Dog from "./Dog";
+import { UserAuth } from "../AuthContext";
+import { db } from "../../firebase";
+import Dog from "../Dog";
 
 const Visit = () => {
   const [time, setTime] = useState([]);

@@ -110,7 +110,7 @@ const RegisterNew = () => {
   };
 
   return (
-    <div className=" w-full h-screen flex justify-center items-center ">
+    <div className=" w-full h-full min-h-screen flex justify-center items-center ">
       <div className="md:w-1/3 md:h-[80vh] min-h-fit rounded-lg border border-black font-black p-6">
         <div className="w-full h-full flex flex-col ">
           <div className="flex justify-center items-center text-xl mb-4">
