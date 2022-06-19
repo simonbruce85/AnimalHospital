@@ -7,8 +7,9 @@ import { AuthContextProvider } from './components/AuthContext';
 import RedirectRoute from './components/RedirectRoute';
 import Register from './pages/Register';
 import Signup from './components/Signup';
-import NewVisit from './pages/NewVisit';
+import NewVisitPage from './pages/NewVisitPage';
 import History from './pages/History';
+import AddVisitPage from './pages/AddVisitPage';
 
 function App() {
   return (
@@ -17,9 +18,10 @@ function App() {
       <Routes>
         <Route path="/" element={<RedirectRoute><Login/></RedirectRoute>}/>
         <Route path="/home" element={<Protectedroute><Home/></Protectedroute>}/>
-        <Route path="/visit" element={<Protectedroute><NewVisit/></Protectedroute>}/>
+        <Route path="/visit" element={<Protectedroute><NewVisitPage/></Protectedroute>}/>
         <Route path="/register" element={<Protectedroute><Register/></Protectedroute>}/>
         <Route path="/history" element={<Protectedroute><History/></Protectedroute>}/>
+        <Route path="/newVisit" element={<Protectedroute><AddVisitPage/></Protectedroute>}/>
         <Route path="/signup" element={<Signup/>}/>
       </Routes>
       </AuthContextProvider></>

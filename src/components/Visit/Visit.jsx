@@ -41,7 +41,6 @@ const Visit = () => {
       });
       setDogs(matrix);
 
-      console.log(matrix);
     } catch (error) {
       console.log(error);
     }

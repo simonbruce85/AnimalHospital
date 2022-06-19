@@ -2,8 +2,11 @@ import React from 'react'
 import DogList from '../components/DogList'
 import Sidebar from '../components/Sidebar'
 
-const NewVisit = () => {
+const NewVisitPage = () => {
+  
   return (
+
+
     <div className="md:flex ">
     <Sidebar/>
     <DogList/>
@@ -11,4 +14,4 @@ const NewVisit = () => {
   )
 }
 
-export default NewVisit
+export default NewVisitPage

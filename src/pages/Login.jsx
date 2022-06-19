@@ -1,6 +1,8 @@
+import { browserSessionPersistence, setPersistence } from "firebase/auth";
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { UserAuth } from "../components/AuthContext";
+import { auth } from "../firebase";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -13,6 +15,7 @@ const Login = () => {
     e.preventDefault();
     setError('')
     try {
+      setPersistence(auth, browserSessionPersistence)
       await logIn(email, password);
       navigate("/home");
     } catch (error) {

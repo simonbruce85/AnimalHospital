@@ -6,6 +6,7 @@ import {
   query,
   collection,
   getDocs,
+  orderBy,
 } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
 import { FiSearch, FiCalendar } from "react-icons/fi";
@@ -19,7 +20,6 @@ const DogList = () => {
   const [dogs, setDogs] = useState([]);
   const [search, setSearch] = useState("");
   const { user } = UserAuth();
-  const [showMore, setShowMore] = useState(false)
   const matrix = [];
 
   // useEffect(() => {
@@ -30,7 +30,7 @@ const DogList = () => {
   // const times = `${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}`;
 
   useEffect(() => {
-    dataCalla();
+    dogsCalla();
   }, [user?.email]);
 
   const dataCalla = async () => {
@@ -39,20 +39,28 @@ const DogList = () => {
       querySnapshot.forEach((doc) => {
         matrix.push(doc.data());
       });
-      setDogs(matrix);
-
-      console.log(matrix);
+      // setDogs(matrix);
+      // console.log(dogs);
     } catch (error) {
       console.log(error);
     }
   };
+  const cities = [];
+  const q = query(collection(db, "users"), orderBy("dogName", "asc"));
+const dogsCalla = () => { onSnapshot(q, (querySnapshot) => {
+    setTime(
+    querySnapshot.docs.map((doc) => ({
+      id: doc.id,
+      data: doc.data(),
+})));
+})};
 
   const handleChangeSearch = (e) => {
     setSearch(e.target.value);
   };
 
-  const filteredDogs = dogs?.filter((dog) =>
-    dog.dogName.toLowerCase().includes(search.toLowerCase())
+  const filteredDogs = time?.filter((dog) =>
+    dog?.data.dogName.toLowerCase().includes(search.toLowerCase())
   );
 
   return (
@@ -91,7 +99,7 @@ const DogList = () => {
       <div className="border-x border-b border-black rounded-b-xl" >
         <div>
           {filteredDogs?.map((item) => (
-            <Dog item={item} />
+            <Dog item={item.data} idDog={item.id} key={item.id} />
           ))}
         </div>
       </div>
