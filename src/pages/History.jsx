@@ -2,6 +2,7 @@ import React from "react";
 import { useLocation } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
 
+
 const History = () => {
   const { state } = useLocation();
   const {
@@ -28,9 +29,11 @@ const History = () => {
   } = state;
 let counter = 0;
   return (
-    <div className="md:flex ">
+    <div className="md:flex " >
+      <div className="">
       <Sidebar />
-      <div className=" h-full w-full sm:ml-4  mt-4 mr-4 ">
+      </div>
+      <div className=" h-full w-full sm:ml-4  mt-4 mr-4 " >
         <div className="h-full w-full  p-4">
           <div>
             <div className="bg-gradient-to-r from-[#F06CA6] via-[#F58352] to-[#F06CA6] p-1 flex items-center rounded-t-lg text-gray-300">

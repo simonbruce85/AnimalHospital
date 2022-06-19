@@ -22,13 +22,13 @@ console.log(item?.visit)
       {showMore && (
         <div className="flex justify-center h-[10vh] items-center">
           <button
-            className="h-fit bg-gradient-to-r from-[#F06CA6] via-[#F58352] to-[#F06CA6] p-1 px-2 m-1 flex items-center rounded-full text-gray-300"
+            className="h-fit bg-gradient-to-r from-[#F06CA6] via-[#F58352] to-[#F06CA6] p-1 px-2 m-1 flex items-center rounded-full text-gray-300 hover:scale-105"
             onClick={() => navigate("/newVisit", { state: { idDog: idDog } })}
           >
             <BiBookAdd className="text-xl" /> Agregar Nueva Consulta
           </button>
           <button
-            className="h-fit bg-gradient-to-r from-[#F06CA6] via-[#F58352] to-[#F06CA6] p-1 px-2 m-1 flex items-center rounded-full text-gray-300"
+            className="h-fit bg-gradient-to-r from-[#F06CA6] via-[#F58352] to-[#F06CA6] p-1 px-2 m-1 flex items-center rounded-full text-gray-300 hover:scale-105"
             onClick={() =>
               navigate("/History", {
                 state: {
@@ -56,7 +56,7 @@ console.log(item?.visit)
               })
             }
           >
-            <BsFileMedical className="text-xl" /> Ver Historial
+            <BsFileMedical className="text-xl " /> Ver Historial
           </button>
         </div>
       )}

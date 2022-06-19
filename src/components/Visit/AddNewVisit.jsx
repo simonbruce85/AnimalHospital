@@ -13,6 +13,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import "firebase/compat/firestore";
 import { collection, addDoc } from "firebase/firestore";
 import { db } from "../../firebase";
+import perritos from "../../assets/perritos.webp"
 
 const AddNewVisit = ({idDog}) => {
   const navigate = useNavigate();
@@ -63,7 +64,7 @@ const AddNewVisit = ({idDog}) => {
   };
 
   return (
-    <div className=" w-full h-full min-h-screen flex justify-center items-center ">
+    <div className=" w-full h-full min-h-screen flex justify-center items-center bg-cover " style={{ backgroundImage: `url(${perritos})` }}>
       <div className="md:w-1/3  min-h-fit rounded-lg border border-black font-black p-6">
         <div className="w-full h-full flex flex-col ">
           <form
@@ -115,7 +116,7 @@ const AddNewVisit = ({idDog}) => {
             </div>
             <div className="flex">
               <button
-                className="bg-gradient-to-r from-[#F06CA6] via-[#F58352] to-[#F06CA6] text-white p-3 rounded-full font-bold ml-auto"
+                className="bg-gradient-to-r from-[#F06CA6] via-[#F58352] to-[#F06CA6] text-white p-3 rounded-full font-bold ml-auto hover:scale-105"
                 type="submit"
               >
                 Agregar Cita

@@ -56,14 +56,11 @@ const Login = () => {
                   placeholder="Password"
                   autoComplete="current-password"
                 />
-                <button className="bg-gradient-to-r from-[#F06CA6] via-[#F58352] to-[#F06CA6] py-3 my-6 rounded-full font-bold">
+                <button className="bg-gradient-to-r from-[#F06CA6] via-[#F58352] to-[#F06CA6] py-3 my-6 rounded-full font-bold hover:scale-105">
                   Ingresar
                 </button>
                 <div className="flex justify-between items-center text-sm text-gray-600">
-                  <p>
-                    <input className="mr-2" type="checkbox" />
-                    Remember Me
-                  </p>
+                  
                   <p> Need Help?</p>
                 </div>
               </form>

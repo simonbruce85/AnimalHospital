@@ -27,7 +27,7 @@ const Sidebar = () => {
 
   return (
     <>
-      <div className=" flex w-full md:min-w-fit md:w-1/12 md:min-h-screen h-[50px] md:h-full bg-gray-700 md:flex-col pt-6 md:justify-between p-4">
+      <div className="flex w-full md:min-w-fit md:w-1/12 md:min-h-screen h-[50px] md:h-full bg-gray-700 md:flex-col pt-6 md:justify-between p-4">
         <div className="hidden md:inline-block hover:animate-bounce">
             <img
               src={Logo}
