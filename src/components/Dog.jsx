@@ -17,7 +17,7 @@ console.log(item?.visit)
       >
         <p>{item.dogName}</p>
         <p>{item.ownersName}</p>
-        <p>{item.ownersName}</p>
+        <p>{item.breed}</p>
       </div>
       {showMore && (
         <div className="flex justify-center h-[10vh] items-center">

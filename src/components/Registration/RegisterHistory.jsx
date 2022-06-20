@@ -3,19 +3,19 @@ import React from 'react'
 const RegisterHistory = ({formData, setFormData}) => {
   return (
     <div
-            className=" flex flex-col font-semibold "
+            className=" flex flex-col font-semibold w "
           >
             <label>Condiciones Medicas</label>
             <input
               onChange={(e) => setFormData({...formData, healthConditions: e.target.value})}
               className="p-3 my-2 border border-black rounded grid grid-cols-2 "
-              placeholder="Nombre de la Mascota"
+              placeholder="Condiciones Previas"
               value={formData.healthConditions}
               required
               autoFocus
             />
             <label>Vacunas</label>
-            <div className='p-3 my-2 border border-black rounded grid grid-cols-2 '>
+            <div className='p-3 my-2 border border-black rounded grid grid-cols-2 min-h-fit'>
             <div className='flex items-center justify-between w-2/3'>
             Parvovirosis <input onChange={(e) => setFormData({...formData, parvo: !formData.parvo})} type="checkbox"/>
             </div>

@@ -53,7 +53,7 @@ const RegisterDog = ({formData, setFormData}) => {
               onChange={(e) => setFormData({...formData, notes: e.target.value})}
               className="p-3 my-2 border border-black rounded"
               type="date"
-              placeholder="Fecha de Nacimiento"
+              placeholder="Notas"
               value={formData.notes}
             />
           </div>

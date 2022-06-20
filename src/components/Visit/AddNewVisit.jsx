@@ -78,7 +78,7 @@ const AddNewVisit = ({idDog}) => {
                   setFormData({ ...formData, visitReason: e.target.value })
                 }
                 className="p-3 my-2 border border-black rounded "
-                placeholder="Nombre de la Mascota"
+                placeholder="Razon de la visita"
                 value={formData.visitReason}
                 required
                 autoFocus
@@ -89,7 +89,7 @@ const AddNewVisit = ({idDog}) => {
                   setFormData({ ...formData, symptoms: e.target.value })
                 }
                 className="p-3 my-2 border border-black rounded"
-                placeholder="Notas"
+                placeholder="Sintomas"
                 value={formData.symptoms}
               />
             </div>

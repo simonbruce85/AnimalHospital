@@ -9,7 +9,7 @@ const RegisterOwner = ({formData, setFormData,formErrors}) => {
             <input
               onChange={(e) => setFormData({...formData, ownersName: e.target.value})}
               className="p-3 my-2 border border-black rounded"
-              placeholder="Nombre del Dueno"
+              placeholder="Nombre del Dueño"
               value={formData.ownersName}
             />
             <p className='text-red-600'>{formErrors.ownersName}</p>
@@ -33,7 +33,7 @@ const RegisterOwner = ({formData, setFormData,formErrors}) => {
             <textarea
               onChange={(e) => setFormData({...formData, notesOwner: e.target.value})}
               className="p-3 my-2 border border-black rounded"
-              placeholder="Fecha de Nacimiento"
+              placeholder="Notas"
               value={formData.notesOwner}
             />
           </div>
