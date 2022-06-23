@@ -63,6 +63,11 @@ const Login = () => {
                   
                   <p> Need Help?</p>
                 </div>
+                <div className="py-4">
+                  <p>Test Credentials</p>
+                  <p>Email: test@test.com</p>
+                  <p>Password: test1234</p>
+                </div>
               </form>
             </div>
           </div>
