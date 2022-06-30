@@ -132,7 +132,7 @@ const RegisterNew = () => {
 
   return (
     <div className=" w-full h-full min-h-screen flex justify-center items-center bg-cover" style={{ backgroundImage: `url(${perritos})` }}>
-      <div className="md:w-1/3 min-w-fit mt-6 md:mt:0 lg:h-[80vh] flex justify-between rounded-lg border bg-white border-black font-black p-6">
+      <div className="md:w-1/3 min-w-fit my-6 md:mt-0 lg:h-[80vh] flex justify-between rounded-lg border bg-white border-black font-black p-6">
         <div className="w-full h-auto flex flex-col justify-between  ">
           <div className="flex justify-center items-center text-xl mb-4 ">
             <h1 className="border-b-4 border-[#F58352]">{FormTitles[page]}</h1>
