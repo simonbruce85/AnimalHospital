@@ -33,18 +33,6 @@ const DogList = () => {
     dogsCalla();
   }, [user?.email]);
 
-  const dataCalla = async () => {
-    try {
-      const querySnapshot = await getDocs(collection(db, "users"));
-      querySnapshot.forEach((doc) => {
-        matrix.push(doc.data());
-      });
-      // setDogs(matrix);
-      // console.log(dogs);
-    } catch (error) {
-      console.log(error);
-    }
-  };
   const cities = [];
   const q = query(collection(db, "users"), orderBy("dogName", "asc"));
 const dogsCalla = () => { onSnapshot(q, (querySnapshot) => {
