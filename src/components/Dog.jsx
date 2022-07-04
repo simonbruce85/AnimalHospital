@@ -6,7 +6,6 @@ import { useNavigate } from "react-router-dom";
 const Dog = ({ idDog, item }) => {
   const [showMore, setShowMore] = useState(false);
   const navigate = useNavigate();
-console.log(item?.visit)
   return (
     <div className=" w-full border-t border-black">
       <div
