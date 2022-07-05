@@ -37,7 +37,7 @@ const Sidebar = () => {
         </div>
 
         <ul className="">
-          <li className="hidden md:flex  my-4 px-1 text-gray-400 hover:text-gray-200 cursor-pointer hover:border-r-2  border-gray-200 justify-center lg:justify-start items-center" onClick={() => navigate("/home")}>
+          <li className="hidden md:flex  my-4 px-1 text-gray-400 hover:text-gray-200 cursor-pointer hover:border-r-2  border-gray-200 justify-center lg:justify-start items-center" /*onClick={() => navigate("/home")}*/>
             <MdSpaceDashboard />
             <div className="hidden lg:inline-block pl-3" >Inicio</div>
           </li>

@@ -17,7 +17,7 @@ function App() {
     <AuthContextProvider>
       <Routes>
         <Route path="/" element={<RedirectRoute><Login/></RedirectRoute>}/>
-        <Route path="/home" element={<Protectedroute><Home/></Protectedroute>}/>
+        {/* <Route path="/home" element={<Protectedroute><Home/></Protectedroute>}/> */}
         <Route path="/visit" element={<Protectedroute><NewVisitPage/></Protectedroute>}/>
         <Route path="/register" element={<Protectedroute><Register/></Protectedroute>}/>
         <Route path="/history" element={<Protectedroute><History/></Protectedroute>}/>

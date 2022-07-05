@@ -8,7 +8,7 @@ const RedirectRoute = ({children}) => {
     if(!user){
         return children;
     }else{
-  return <Navigate to="/home"/>;
+  return <Navigate to="/visit"/>;
   }
 }
 
