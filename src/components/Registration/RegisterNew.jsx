@@ -41,6 +41,7 @@ const RegisterNew = () => {
     kc: false,
     giardia: false,
     rabia: false,
+    imgUrl: "",
   });
 
   const addDog = async (e) => {
@@ -66,6 +67,7 @@ const RegisterNew = () => {
         kc: formData.kc,
         giardia: formData.giardia,
         rabia: formData.rabia,
+        imgUrl: formData.imgUrl,
       });
       alert("Agregado ");
       setPage((currPage) => currPage - 2);
@@ -88,6 +90,7 @@ const RegisterNew = () => {
         kc: false,
         giardia: false,
         rabia: false,
+        imgUrl: "",
       });
     } catch (error) {
       console.log(error);

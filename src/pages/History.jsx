@@ -26,6 +26,7 @@ const History = () => {
     kc,
     giardia,
     rabia,
+    imgUrl,
     visit,
   } = state;
   let counter = 0;
@@ -100,6 +101,9 @@ const History = () => {
               Condiciones Medicas: {healthConditions}
             </p>
             <p className="border-x border-gray-400">Notas: {notesHistory}</p>
+            {imgUrl?.map((imageUrl) => (
+        <p className="border-x border-b border-gray-400 ">Examen: <a href={imageUrl} className="text-blue-500 cursor-pointer border-b border-blue-500">Ver Examen</a></p>
+      ))}
           </div>
           <div className="bg-gradient-to-r from-[#F06CA6] via-[#F58352] to-[#F06CA6] p-1 flex items-center  text-gray-300">
             Visitas
