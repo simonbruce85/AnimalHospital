@@ -52,9 +52,9 @@ const dogsCalla = () => { onSnapshot(q, (querySnapshot) => {
   );
 
   return (
-    <div className=" h-full w-full sm:ml-4  mt-4 mr-4">
-      <div className="h-full border border-gray-900 text-white rounded-lg w-full  ">
-        <div className="flex w-full items-center">
+    <div className=" h-full sm:ml-4 px-2 pt-2 mr-4 md:ml-[170px]">
+      <div className="h-full border border-gray-900 text-white rounded-lg ">
+        <div className="flex items-center">
           <div className="m-4 text-gray-900">
             <FiSearch />
           </div>
@@ -81,7 +81,7 @@ const dogsCalla = () => { onSnapshot(q, (querySnapshot) => {
       {/*Container*/}
       <div className="w-full grid grid-cols-3 text-gray-300 bg-gradient-to-r from-[#F06CA6] via-[#F58352] to-[#F06CA6] rounded-t-lg  justify-between p-2 h-full mt-4 ">
         <p>Nombre del paciente</p>
-        <p>Nombre del dueno</p>
+        <p>Nombre del dueño</p>
         <p>Raza</p>
       </div>
       <div className="border-x border-b border-black rounded-b-xl" >

@@ -27,8 +27,8 @@ const Sidebar = () => {
 
   return (
     <>
-      <div className="flex w-full md:min-w-fit md:w-1/12 md:min-h-screen h-[50px] md:h-full bg-gray-700 md:flex-col pt-6 md:justify-between p-4">
-        <div className="hidden md:inline-block hover:animate-bounce">
+      <div className=" md:fixed flex w-full md:min-w-fit border-blue-600 md:w-1/12 md:min-h-screen h-[50px] md:h-full bg-gray-700 md:flex-col pt-6 md:justify-between p-4">
+        <div className="hidden md:inline-block hover:animate-bounce w-full">
             <img
               src={Logo}
               alt="Logo Image"
@@ -62,7 +62,7 @@ const Sidebar = () => {
         </button>
 
         {/* Hamburger */}
-        <div onClick={handleClick} className="md:hidden z-10 text-gray-300">
+        <div onClick={handleClick} className="md:hidden z-10 flex items-center text-gray-300">
           {!nav ? <FaBars /> : <FaTimes />}
         </div>
           {/*MOBILE MENU*/}
@@ -70,10 +70,10 @@ const Sidebar = () => {
           className={
             !nav
               ? "hidden"
-              : "absolute top-0 left-0 w-full h-screen bg-[#0b0b0b] flex flex-col justify-center items-center text-gray-200"
+              : "absolute md:hidden top-0 left-0 w-full h-screen bg-[#0b0b0b] flex flex-col justify-center items-center text-gray-200"
           }
         >
-          <li className="py-6 text-4xl text-gray-200" onClick={() => navigate("/home")}  >
+          <li className="py-6 text-4xl text-gray-200"   >
             Dashboard
           </li>
           <li className="py-6 text-4xl" onClick={() => navigate("/visit")}  >

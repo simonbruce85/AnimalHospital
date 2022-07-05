@@ -5,39 +5,46 @@ import {
   updateDoc,
   serverTimestamp,
 } from "firebase/firestore";
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import "firebase/compat/firestore";
 import { db } from "../../firebase";
 import perritos from "../../assets/perritos.webp";
 //file upload imports
-import {
-  ref,
-  uploadBytes,
-  getDownloadURL,
-} from "firebase/storage";
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { storage } from "../../firebase";
 import { v4 } from "uuid";
 {
   /*File upload imports */
 }
 
-const AddNewVisit = ({ idDog }) => {
+const AddNewVisit = () => {
   //file upload
   const [imageUpload, setImageUpload] = useState(null);
   const [imageUrls, setImageUrls] = useState([]);
+
+  const { state } = useLocation();
+  const { idDog, dogName, ownersName } = state;
 
   const uploadFile = () => {
     if (imageUpload == null) return;
     const imageRef = ref(storage, `images/${imageUpload.name + v4()}`);
     uploadBytes(imageRef, imageUpload).then((snapshot) => {
       getDownloadURL(snapshot.ref).then((url) => {
-        alert("file uploaded")
+        alert("file uploaded");
         setImageUrls((prev) => [...prev, url]);
       });
     });
   };
-    //file upload
+
+  {
+    /* updating the form data after the updating of the setImageUrls state is completed*/
+  }
+  useEffect(() => {
+    setFormData({ ...formData, imgUrl: imageUrls });
+  }, [imageUrls]);
+
+  //file upload
 
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
@@ -57,7 +64,7 @@ const AddNewVisit = ({ idDog }) => {
     imgUrl: "",
   });
 
-  const dogID = doc(db, "users", `${idDog.idDog}`);
+  const dogID = doc(db, "users", `${idDog}`);
 
   const toggleAddVisit = async (e) => {
     e.preventDefault();
@@ -112,12 +119,17 @@ const AddNewVisit = ({ idDog }) => {
     >
       <div className="md:w-1/3 min-w-fit h-fit my-6 md:mt:0 flex justify-between rounded-lg border bg-white border-black font-black p-6">
         <div className="w-full h-full flex flex-col ">
+          <div className=" w-full mb-2 flex justify-center items-center">
+            <p className="border-b-2 border-[#F58352]">
+              Hola, {dogName} mascota de {ownersName}
+            </p>
+          </div>
           <form
             onSubmit={toggleAddVisit}
             className="h-full flex flex-col justify-between "
           >
             <div className=" flex flex-col font-semibold ">
-              <label>Razon de la visita</label>
+              <label>Razón de la visita</label>
               <input
                 onChange={(e) =>
                   setFormData({ ...formData, visitReason: e.target.value })
@@ -128,7 +140,7 @@ const AddNewVisit = ({ idDog }) => {
                 required
                 autoFocus
               />
-              <label className="">Sintomas</label>
+              <label className="">Síntomas</label>
               <textarea
                 onChange={(e) =>
                   setFormData({ ...formData, symptoms: e.target.value })
@@ -173,13 +185,22 @@ const AddNewVisit = ({ idDog }) => {
                 placeholder="Examenes Realizados"
                 value={formData.exams}
               />
-              <input
-                type="file"
-                onChange={(e) => {
-                  setImageUpload(e.target.files[0]);
-                }}
-              />
-              <button type="button" onClick={uploadFile}> Upload Image</button>
+              <div className="flex flex-col">
+                <input
+                  type="file"
+                  onChange={(e) => {
+                    setImageUpload(e.target.files[0]);
+                  }}
+                />
+                <button
+                  className="bg-gradient-to-r from-[#F06CA6] via-[#F58352] to-[#F06CA6] text-white w-fit p-2 my-2 rounded-full font-bold hover:scale-105"
+                  type="button"
+                  onClick={uploadFile}
+                >
+                  {" "}
+                  Subir Examen
+                </button>
+              </div>
             </div>
             <label>Vacunas</label>
             <div className="p-3 my-2 border border-black rounded grid grid-cols-2 min-h-fit">

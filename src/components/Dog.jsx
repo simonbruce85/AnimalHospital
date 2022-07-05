@@ -19,10 +19,10 @@ const Dog = ({ idDog, item }) => {
         <p>{item.breed}</p>
       </div>
       {showMore && (
-        <div className="flex justify-center h-[10vh] items-center">
+        <div className="flex justify-center h-[10vh] items-center ">
           <button
             className="h-fit bg-gradient-to-r from-[#F06CA6] via-[#F58352] to-[#F06CA6] p-1 px-2 m-1 flex items-center rounded-full text-gray-300 hover:scale-105"
-            onClick={() => navigate("/newVisit", { state: { idDog: idDog } })}
+            onClick={() => navigate("/newVisit", { state: { idDog: idDog, dogName: item.dogName, ownersName: item.ownersName }, })}
           >
             <BiBookAdd className="text-xl" /> Agregar Nueva Consulta
           </button>

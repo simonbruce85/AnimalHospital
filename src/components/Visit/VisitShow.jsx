@@ -17,7 +17,7 @@ const VisitShow = ({item, counter}) => {
       <p className="border-x border-b border-gray-400">Tratamiento en la clinica: {item.clinicTreatment}</p>
       <p className="border-x border-b border-gray-400">Tratamiento Indicado: {item.houseTreatment}</p>
       <p className="border-x border-b border-gray-400">Examenes Realizados: {item.exams}</p>
-      {item.imgUrl.map((imageUrl) => (
+      {item.imgUrl?.map((imageUrl) => (
         <p className="border-x border-b border-gray-400 ">Examen: <a href={imageUrl} className="text-blue-500 cursor-pointer border-b border-blue-500">Ver Examen</a></p>
       ))}
       <p className="pr-4 border-x border-gray-400">Vacunas:</p>
