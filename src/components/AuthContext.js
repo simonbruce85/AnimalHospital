@@ -12,6 +12,11 @@ export function AuthContextProvider({children}){
          createUserWithEmailAndPassword(auth, email,password)
     }
 
+
+
+
+
+    
     function logIn(email,password){
         return signInWithEmailAndPassword(auth, email, password)
     }
