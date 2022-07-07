@@ -17,7 +17,7 @@ const Login = () => {
     try {
       setPersistence(auth, browserSessionPersistence)
       await logIn(email, password);
-      navigate("/home");
+      navigate("/visit");
     } catch (error) {
       console.log(error);
       setError(error.message)

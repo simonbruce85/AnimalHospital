@@ -41,7 +41,10 @@ const RegisterNew = () => {
     kc: false,
     giardia: false,
     rabia: false,
-    imgUrl: "",
+    imgFile: {
+      imgName: "",
+      imgUrl: "",
+    }
   });
 
   const addDog = async (e) => {
@@ -67,7 +70,10 @@ const RegisterNew = () => {
         kc: formData.kc,
         giardia: formData.giardia,
         rabia: formData.rabia,
-        imgUrl: formData.imgUrl,
+        imgFile: {
+          imgName: formData.imgFile.imgName,
+          imgUrl:  formData.imgFile.imgUrl,
+        }
       });
       alert("Agregado ");
       setPage((currPage) => currPage - 2);
@@ -90,7 +96,10 @@ const RegisterNew = () => {
         kc: false,
         giardia: false,
         rabia: false,
-        imgUrl: "",
+        imgFile: {
+          imgName: "",
+          imgUrl: "",
+        }
       });
     } catch (error) {
       console.log(error);

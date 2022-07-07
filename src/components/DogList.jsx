@@ -33,7 +33,6 @@ const DogList = () => {
     dogsCalla();
   }, [user?.email]);
 
-  const cities = [];
   const q = query(collection(db, "users"), orderBy("dogName", "asc"));
 const dogsCalla = () => { onSnapshot(q, (querySnapshot) => {
     setTime(

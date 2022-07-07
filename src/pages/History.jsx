@@ -26,10 +26,27 @@ const History = () => {
     kc,
     giardia,
     rabia,
-    imgUrl,
+    imgFile,
     visit,
   } = state;
   let counter = 0;
+  const items = [];
+  // function to show the files grabbing the information from firebase (link and name of the file)
+  //the idea was using a for loop to iterate trought two different arrays at the same time
+  if (imgFile){
+  for (const [index] of imgFile.imgUrl.entries()) {
+    items.push(
+      <p className=" px-4">
+        <a
+          href={imgFile.imgUrl[index]}
+          target="_blank"
+          className="text-blue-500 cursor-pointer border-b border-blue-500"
+        >
+          {imgFile.imgName[index]}
+        </a>
+      </p>
+    );
+  }}
   return (
     <div >
       <div className=" min-h-screen h-full  md:ml-[170px]  ">
@@ -97,10 +114,11 @@ const History = () => {
             <p className="border-x border-b border-gray-400">
               Condiciones Medicas: {healthConditions}
             </p>
-            <p className="border-x border-gray-400">Notas: {notesHistory}</p>
-            {imgUrl && imgUrl != [] && imgUrl.map((imageUrl) => (
-        <p className="border-x border-b border-gray-400 ">Examen: <a href={imageUrl} className="text-blue-500 cursor-pointer border-b border-blue-500">Ver Examen</a></p>
-      ))}
+            <p className="border-x border-b border-gray-400">Notas: {notesHistory}</p>
+            <div className="border-x border-b border-gray-400 flex items-center">
+            <p>Archivos</p>
+            <div className="flex w-full">{items}</div>
+          </div>
           </div>
           <div className="bg-gradient-to-r from-[#F06CA6] via-[#F58352] to-[#F06CA6] p-1 flex items-center  text-gray-300">
             Visitas

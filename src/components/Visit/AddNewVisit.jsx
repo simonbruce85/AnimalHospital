@@ -22,6 +22,7 @@ const AddNewVisit = () => {
   //file upload
   const [imageUpload, setImageUpload] = useState(null);
   const [imageUrls, setImageUrls] = useState([]);
+  const [imageName, setImageName] = useState([]);
 
   const { state } = useLocation();
   const { idDog, dogName, ownersName } = state;
@@ -33,6 +34,7 @@ const AddNewVisit = () => {
       getDownloadURL(snapshot.ref).then((url) => {
         alert("file uploaded");
         setImageUrls((prev) => [...prev, url]);
+        setImageName((prev) => [...prev, imageUpload.name]);
       });
     });
   };
@@ -41,9 +43,9 @@ const AddNewVisit = () => {
     /* updating the form data after the updating of the setImageUrls state is completed*/
   }
   useEffect(() => {
-    setFormData({ ...formData, imgUrl: imageUrls });
+    
+    setFormData({ ...formData, imgFile:{ imgUrl: imageUrls, imgName: imageName} });
   }, [imageUrls]);
-
   //file upload
 
   const navigate = useNavigate();
@@ -61,7 +63,10 @@ const AddNewVisit = () => {
     houseTreatment: "",
     despara: false,
     exams: "",
-    imgUrl: "",
+    imgFile: {
+      imgName: "",
+      imgUrl: "",
+    }
   });
 
   const dogID = doc(db, "users", `${idDog}`);
@@ -85,7 +90,10 @@ const AddNewVisit = () => {
           houseTreatment: formData.clinicTreatment,
           despara: formData.despara,
           exams: formData.exams,
-          imgUrl: imageUrls,
+          imgFile: {
+            imgName: formData.imgFile.imgName,
+            imgUrl:  formData.imgFile.imgUrl,
+          }
         }),
       });
       alert("Agregado ");
@@ -104,9 +112,14 @@ const AddNewVisit = () => {
         houseTreatment: "",
         despara: false,
         exams: "",
-        imgUrl: "",
+        imgFile: {
+          imgName: "",
+          imgUrl: "",
+        }
       });
       setImageUpload(null);
+      setImageUrls([]);
+      setImageName([]);
     } catch (error) {
       console.log(error);
     }

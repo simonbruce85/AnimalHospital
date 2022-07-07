@@ -11,6 +11,7 @@ const RegisterHistory = ({formData, setFormData}) => {
 
   const [imageUpload, setImageUpload] = useState(null);
   const [imageUrls, setImageUrls] = useState([]);
+  const [imageName, setImageName] = useState([]);
 {/* Uploading the file to firebase and adding the link to the array of documents for this dog*/}
   const uploadFile = () => {
     if (imageUpload == null) return;
@@ -20,6 +21,7 @@ const RegisterHistory = ({formData, setFormData}) => {
         alert("file uploaded")
         console.log(url)
         setImageUrls(current => [...current,url]);
+        setImageName((prev) => [...prev, imageUpload.name]);
       });
     });
   };
@@ -27,7 +29,7 @@ const RegisterHistory = ({formData, setFormData}) => {
 {/* updating the form data after the updating of the setImageUrls state is completed*/}
   useEffect(() => {
     console.log(imageUrls)
-    setFormData({...formData, imgUrl: imageUrls});
+    setFormData({ ...formData, imgFile:{ imgUrl: imageUrls, imgName: imageName} });
   }, [imageUrls])
   
 

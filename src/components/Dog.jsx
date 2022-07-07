@@ -50,7 +50,7 @@ const Dog = ({ idDog, item }) => {
                   kc: item.kc,
                   giardia: item.giardia,
                   rabia: item.rabia,
-                  imgUrl: item.imgUrl,
+                  imgFile: item.imgFile,
                   visit: item?.visit
                 },
               })
