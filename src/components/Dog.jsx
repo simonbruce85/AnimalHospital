@@ -31,6 +31,7 @@ const Dog = ({ idDog, item }) => {
             onClick={() =>
               navigate("/History", {
                 state: {
+                  idDog: idDog,
                   dogName: item.dogName,
                   breed: item.breed,
                   color: item.color,

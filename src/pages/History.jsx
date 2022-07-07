@@ -7,6 +7,7 @@ const History = () => {
  
   const { state } = useLocation();
   const {
+    idDog,
     dogName,
     breed,
     color,
@@ -28,7 +29,8 @@ const History = () => {
     rabia,
     imgFile,
     visit,
-  } = state;
+  } = state
+
   let counter = 0;
   const items = [];
   // function to show the files grabbing the information from firebase (link and name of the file)
@@ -126,7 +128,7 @@ const History = () => {
           <div className="">
             {visit?.map((item) => (
               counter++,
-              <VisitShow item={item} counter={counter}/>
+              <VisitShow idDog={idDog} item={item} counter={counter}/>
               
               ))}
             <div className=" text-white border-b rounded-b-xl border-x border-gray-400 flex justify-center">

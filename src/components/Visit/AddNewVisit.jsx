@@ -78,6 +78,7 @@ const AddNewVisit = () => {
         visit: arrayUnion({
           visitReason: formData.visitReason,
           symptoms: formData.symptoms,
+          idVisit: v4(),
           // dateVisited: serverTimestamp(),
           parvo: formData.parvo,
           quintuple: formData.quintuple,
