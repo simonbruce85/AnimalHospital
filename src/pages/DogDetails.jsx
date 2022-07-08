@@ -52,7 +52,7 @@ const DogDetails = () => {
 
   return (
     <div className="w-full p-4 min-h-screen h-full flex justify-center items-center bg-[#f8e5f9]">
-      <div className=" lg:w-10/12 lg:flex h-full pt-16">
+      <div className=" md:ml-[160px] xl:ml-0 lg:w-9/12 lg:flex h-full pt-16">
         <div className="lg:w-1/3 flex flex-col md:pt-16">
           <div className="flex justify-center items-center mb-4">
             <img src={dogPic} className=" w-[200px] rounded-full " />
