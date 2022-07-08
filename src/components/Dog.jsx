@@ -9,11 +9,12 @@ const Dog = ({ idDog, item }) => {
   return (
     <div className=" w-full border-t border-black">
       <div
-        className="w-full grid grid-cols-3 justify-between p-2 h-full "
+        className="w-full grid grid-cols-4 justify-between p-2 h-full items-center "
         onClick={() => {
           setShowMore(!showMore);
         }}
       >
+        <img src={item.dogPic} alt="" className="h-[60px] w-[60px] rounded-full"/>
         <p>{item.dogName}</p>
         <p>{item.ownersName}</p>
         <p>{item.breed}</p>
