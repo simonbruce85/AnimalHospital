@@ -1,9 +1,7 @@
-import { async } from "@firebase/util";
 import {
   arrayUnion,
   doc,
   updateDoc,
-  serverTimestamp,
 } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -17,6 +15,9 @@ import { v4 } from "uuid";
 {
   /*File upload imports */
 }
+const timeNow = new Date();
+
+const date = `${timeNow.getDate()}/${timeNow.getMonth() + 1}/${timeNow.getFullYear()}`;
 
 const AddNewVisit = () => {
   //file upload
@@ -79,7 +80,7 @@ const AddNewVisit = () => {
           visitReason: formData.visitReason,
           symptoms: formData.symptoms,
           idVisit: v4(),
-          // dateVisited: serverTimestamp(),
+          dateAdded: date,
           parvo: formData.parvo,
           quintuple: formData.quintuple,
           sextuple: formData.sextuple,
@@ -101,7 +102,6 @@ const AddNewVisit = () => {
       setFormData({
         visitReason: "",
         symptoms: "",
-        dateVisited: serverTimestamp(),
         parvo: false,
         quintuple: false,
         sextuple: false,

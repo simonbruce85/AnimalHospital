@@ -16,26 +16,17 @@ import { db } from "../firebase";
 import Dog from "./Dog";
 
 const DogList = () => {
-  const [time, setTime] = useState([]);
   const [dogs, setDogs] = useState([]);
   const [search, setSearch] = useState("");
   const { user } = UserAuth();
   const matrix = [];
-
-  // useEffect(() => {
-  //   setInterval(() => setTime(new Date()), 1000);
-  // }, []);
-
-  // const date = `${time.getDate()}/${time.getMonth() + 1}/${time.getFullYear()}`;
-  // const times = `${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}`;
-
   useEffect(() => {
     dogsCalla();
   }, [user?.email]);
 
   const q = query(collection(db, "users"), orderBy("dogName", "asc"));
 const dogsCalla = () => { onSnapshot(q, (querySnapshot) => {
-    setTime(
+  setDogs(
     querySnapshot.docs.map((doc) => ({
       id: doc.id,
       data: doc.data(),
@@ -46,7 +37,7 @@ const dogsCalla = () => { onSnapshot(q, (querySnapshot) => {
     setSearch(e.target.value);
   };
 
-  const filteredDogs = time?.filter((dog) =>
+  const filteredDogs = dogs?.filter((dog) =>
     dog?.data.dogName.toLowerCase().includes(search.toLowerCase())
   );
 

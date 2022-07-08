@@ -21,10 +21,10 @@ const Dog = ({ idDog, item }) => {
       {showMore && (
         <div className="flex justify-center h-[10vh] items-center ">
           <button
-            className="h-fit bg-gradient-to-r from-[#F06CA6] via-[#F58352] to-[#F06CA6] p-1 px-2 m-1 flex items-center rounded-full text-gray-300 hover:scale-105"
+            className=" bg-gradient-to-r from-[#F06CA6] via-[#F58352] to-[#F06CA6] p-1 px-2 m-1 flex items-center rounded-full text-gray-300 hover:scale-105"
             onClick={() => navigate("/newVisit", { state: { idDog: idDog, dogName: item.dogName, ownersName: item.ownersName }, })}
           >
-            <BiBookAdd className="text-xl" /> Agregar Nueva Consulta
+            <BiBookAdd className="text-xl mr-1" /> Agregar Nueva Consulta
           </button>
           <button
             className="h-fit bg-gradient-to-r from-[#F06CA6] via-[#F58352] to-[#F06CA6] p-1 px-2 m-1 flex items-center rounded-full text-gray-300 hover:scale-105"
@@ -57,7 +57,41 @@ const Dog = ({ idDog, item }) => {
               })
             }
           >
-            <BsFileMedical className="text-xl " /> Ver Historial
+            <BsFileMedical className="text-xl mr-1" /> Ver Historial
+          </button>
+          <button
+            className="h-fit bg-gradient-to-r from-[#F06CA6] via-[#F58352] to-[#F06CA6] p-1 px-2 m-1 flex items-center rounded-full text-gray-300 hover:scale-105"
+            onClick={() =>
+              navigate("/temporary", {
+                state: {
+                  idDog: idDog,
+                  dogName: item.dogName,
+                  breed: item.breed,
+                  color: item.color,
+                  weight: item.weight,
+                  birthday: item.birthday,
+                  ownersName: item.ownersName,
+                  address: item.address,
+                  phone: item.phone,
+                  notes: item.notes,
+                  notesOwner: item.notesOwner,
+                  healthConditions: item.healthConditions,
+                  notesHistory: item.notesHistory,
+                  dateAdded: item.dateAdded,
+                  parvo: item.parvo,
+                  quintuple: item.quintuple,
+                  sextuple: item.sextuple,
+                  kc: item.kc,
+                  giardia: item.giardia,
+                  rabia: item.rabia,
+                  dogPic: item.dogPic,
+                  imgFile: item.imgFile,
+                  visit: item?.visit
+                },
+              })
+            }
+          >
+            <BsFileMedical className="text-xl mr-1" /> Temporary
           </button>
         </div>
       )}

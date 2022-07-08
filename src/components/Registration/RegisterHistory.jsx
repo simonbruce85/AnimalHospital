@@ -19,7 +19,6 @@ const RegisterHistory = ({formData, setFormData}) => {
     uploadBytes(imageRef, imageUpload).then((snapshot) => {
       getDownloadURL(snapshot.ref).then((url) => {
         alert("file uploaded")
-        console.log(url)
         setImageUrls(current => [...current,url]);
         setImageName((prev) => [...prev, imageUpload.name]);
       });
@@ -28,7 +27,6 @@ const RegisterHistory = ({formData, setFormData}) => {
 
 {/* updating the form data after the updating of the setImageUrls state is completed*/}
   useEffect(() => {
-    console.log(imageUrls)
     setFormData({ ...formData, imgFile:{ imgUrl: imageUrls, imgName: imageName} });
   }, [imageUrls])
   

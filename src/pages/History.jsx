@@ -132,7 +132,7 @@ const History = () => {
               
               ))}
             <div className=" text-white border-b rounded-b-xl border-x border-gray-400 flex justify-center">
-              {" made with very much effort by a junior software developer"}
+              {"Simon Bruce"}
             </div>
           </div>
         </div>

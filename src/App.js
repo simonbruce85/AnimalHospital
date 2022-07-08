@@ -11,6 +11,7 @@ import Sidebar from './components/Sidebar';
 import DogList from './components/DogList';
 import RegisterNew from './components/Registration/RegisterNew';
 import AddNewVisit from './components/Visit/AddNewVisit';
+import DogDetails from './pages/DogDetails';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path="/register" element={<Protectedroute><RegisterNew/></Protectedroute>}/>
         <Route path="/history" element={<Protectedroute><History/></Protectedroute>}/>
         <Route path="/newVisit" element={<Protectedroute><AddNewVisit/></Protectedroute>}/>
+        <Route path="/temporary" element={<Protectedroute><DogDetails/></Protectedroute>}/>
         <Route path="/signup" element={<Signup/>}/>
       </Routes>
       </AuthContextProvider></>
