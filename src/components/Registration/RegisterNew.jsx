@@ -1,14 +1,8 @@
-import { async } from "@firebase/util";
 import {
-  arrayUnion,
-  doc,
-  onSnapshot,
   serverTimestamp,
-  setDoc,
-  updateDoc,
 } from "firebase/firestore";
-import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+import {  useNavigate } from "react-router-dom";
 import "firebase/compat/firestore";
 import { collection, addDoc } from "firebase/firestore";
 import { db } from "../../firebase";

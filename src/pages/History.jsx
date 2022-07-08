@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
-import Sidebar from "../components/Sidebar";
 import VisitShow from "../components/Visit/VisitShow";
 
 const History = () => {
@@ -28,6 +27,7 @@ const History = () => {
     giardia,
     rabia,
     imgFile,
+    dogPic,
     visit,
   } = state
 

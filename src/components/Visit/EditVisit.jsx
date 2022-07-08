@@ -21,6 +21,7 @@ const EditVisit = ({ item, setEditShow, editShow, idDog,counter }) => {
     diagnostic: item.diagnostic,
     clinicTreatment: item.clinicTreatment,
     houseTreatment: item.houseTreatment,
+    dateAdded: item.dateAdded,
     exams: item.exams,
     imgFile: {
       imgName: item.imgFile.imgName,
@@ -41,6 +42,7 @@ const EditVisit = ({ item, setEditShow, editShow, idDog,counter }) => {
     rabia: item.rabia,
     despara: item.despara,
     diagnostic: item.diagnostic,
+    dateAdded: item.dateAdded,
     clinicTreatment: item.clinicTreatment,
     houseTreatment: item.houseTreatment,
     exams: item.exams,
@@ -70,6 +72,7 @@ const toggleRemoveVisit = async (e) => {
           quintuple: dataToDelete.quintuple,
           sextuple: dataToDelete.sextuple,
           kc: dataToDelete.kc,
+          dateAdded: dataToDelete.dateAdded,
           giardia: dataToDelete.giardia,
           rabia: dataToDelete.rabia,
           diagnostic: dataToDelete.diagnostic,
@@ -107,6 +110,7 @@ navigate("/visit")
                   quintuple: formData.quintuple,
                   sextuple: formData.sextuple,
                   kc: formData.kc,
+                  dateAdded: formData.dateAdded,
                   giardia: formData.giardia,
                   rabia: formData.rabia,
                   diagnostic: formData.diagnostic,
@@ -272,7 +276,7 @@ navigate("/visit")
           onClick={() => {
             toggleEditVisit();
           }}
-          className="h-fit bg-gradient-to-r from-[#F06CA6] via-[#F58352] to-[#F06CA6] p-1 px-2 m-1 flex items-center rounded-full text-gray-300 hover:scale-105"
+          className="h-fit bg-[#99599d] p-1 px-2 m-1 flex items-center rounded-full text-gray-300 hover:scale-105"
           type="button"
         >
           Confirmar
@@ -281,7 +285,7 @@ navigate("/visit")
           onClick={() => {
             toggleRemoveVisit();
           }}
-          className="h-fit bg-gradient-to-r from-[#F06CA6] via-[#F58352] to-[#F06CA6] p-1 px-2 m-1 flex items-center rounded-full text-gray-300 hover:scale-105"
+          className="h-fit bg-[#99599d] p-1 px-2 m-1 flex items-center rounded-full text-gray-300 hover:scale-105"
           type="button"
         >
           Eliminar Visita

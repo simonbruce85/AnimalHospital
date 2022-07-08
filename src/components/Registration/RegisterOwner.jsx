@@ -11,6 +11,7 @@ const RegisterOwner = ({formData, setFormData,formErrors}) => {
               className="p-3 my-2 border border-black rounded"
               placeholder="Nombre del Dueño"
               value={formData.ownersName}
+              autoFocus
             />
             <p className='text-red-600'>{formErrors.ownersName}</p>
             <label>Direccion</label>

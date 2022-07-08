@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import EditVisit from "./EditVisit";
+import { FaCheck, FaTimes } from "react-icons/fa";
 
 const VisitShow = ({ idDog, item, counter }) => {
   const [showMore, setShowMore] = useState(false);
@@ -21,64 +22,88 @@ const VisitShow = ({ idDog, item, counter }) => {
     );
   }
   return (
-    <div>
+    <div className="mb-4 border-2 border-gray-400 rounded-lg shadow-lg bg-[#e6d7e7] p-4">
       <p
         onClick={() => {
           setShowMore(!showMore);
         }}
-        className="border border-gray-400 flex justify-center cursor-pointer"
+        className=" border-gray-400 flex justify-center cursor-pointer text-lg"
       >
         Visita Numero {counter}
       </p>
       {editShow ? (
-        <div>
+        <div className="flex justify-center items-center">
           {showMore && (
-            <div>
-              <p className="border-x border-b border-gray-400">
-                Razon de la visita: {item.visitReason}
-              </p>
-              <p className="border-x border-b border-gray-400">
-                Sintomas: {item.symptoms}
-              </p>
-              <p className="border-x border-b border-gray-400">
-                Diagnostico: {item.diagnostic}
-              </p>
-              <p className="border-x border-b border-gray-400">
-                Tratamiento en la clinica: {item.clinicTreatment}
-              </p>
-              <p className="border-x border-b border-gray-400">
-                Tratamiento Indicado: {item.houseTreatment}
-              </p>
-              <p className="border-x border-b border-gray-400">
-                Examenes Realizados: {item.exams}
-              </p>
+            <div className="pt-2 flex flex-col justify-center items-center">
+              <div className="grid grid-cols-2 m-1 items-center">
+                <p className="border-gray-400 mx-8 ">Razon de la visita:</p>
+                <p>{item.visitReason}</p>
+              </div>
+              <div className="grid grid-cols-2 m-1 items-center">
+                <p className="border-gray-400 mx-8 ">Sintomas:</p>
+                <p>{item.symptoms}</p>
+              </div>
+              <div className="grid grid-cols-2 m-1 items-center">
+                <p className="border-gray-400 mx-8 ">Diagnostico:</p>
+                <p>{item.diagnostic}</p>
+              </div>
+              <div className="grid grid-cols-2 m-1 items-center">
+                <p className="border-gray-400 mx-8 ">
+                  Tratamiento en la clinica:
+                </p>
+                <p>{item.clinicTreatment}</p>
+              </div>
+              <div className="grid grid-cols-2 m-1 items-center">
+                <p className="border-gray-400 mx-8 ">Tratamiento Indicado:</p>
+                <p>{item.houseTreatment}</p>
+              </div>
+              <div className="grid grid-cols-2 m-1 items-center">
+                <p className="border-gray-400 mx-8 ">Tratamiento Realizados:</p>
+                <p>{item.exams}</p>
+              </div>
               {/*If there is any file, show the files section*/}
               {item.imgFile.imgName.length > 0 && (
-                <div className="border-x border-b border-gray-400 flex items-center">
-                  <p>Archivos</p>
-                  <div className="flex w-full">{items}</div>
-                </div>
+                <div className="grid grid-cols-2 m-1 items-center">
+                <p className="border-gray-400 mx-8 ">Archivos</p>
+                <p>{items}</p>
+              </div>
               )}
-              <p className="pr-4 border-x border-gray-400">Vacunas:</p>
-              <div className="w-full flex border-x border-gray-400">
-                <div>
-                  <p>Parvo: {item.parvo ? "Si" : "No"}</p>
-                  <p>Quintuple: {item.quintuple ? "Si" : "No"}</p>
-                  <p>Sextuple: {item.sextuple ? "Si" : "No"}</p>
-                </div>
-                <div className="px-4">
-                  <p>KC: {item.kc ? "Si" : "No"}</p>
-                  <p>Giardia: {item.giardia ? "Si" : "No"}</p>
-                  <p>Rabia {item.rabia ? "Si" : "No"}</p>
-                  <p>Desparasitación {item.despara ? "Si" : "No"}</p>
+              <div className="grid grid-cols-2 m-1 items-center">
+                <p className="border-gray-400 mx-8 ">Vacunas:</p>
+                <div className="w-full flex border-gray-400">
+                  <div className="">
+                    <p className="flex justify-between items-center">
+                      Parvo {item.parvo ? <FaCheck /> : <FaTimes />}
+                    </p>
+                    <p className="flex justify-between items-center">
+                      Quintuple {item.quintuple ? <FaCheck /> : <FaTimes />}
+                    </p>
+                    <p className="flex justify-between items-center">
+                      Sextuple {item.sextuple ? <FaCheck /> : <FaTimes />}
+                    </p>
+                  </div>
+                  <div className="px-4">
+                    <p className="flex justify-between items-center">
+                      KC {item.kc ? <FaCheck /> : <FaTimes />}
+                    </p>
+                    <p className="flex justify-between items-center">
+                      Giardia {item.giardia ? <FaCheck /> : <FaTimes />}
+                    </p>
+                    <p className="flex justify-between items-center ">
+                      Rabia {item.rabia ? <FaCheck /> : <FaTimes />}
+                    </p>
+                    <p className="flex justify-between items-center">
+                      Desparasitación {item.despara ? <FaCheck /> : <FaTimes />}
+                    </p>
+                  </div>
                 </div>
               </div>
-              <div className="border-x border-gray-400 flex items-center justify-center pb-4">
+              <div className=" border-gray-400 flex items-center justify-center pb-4">
                 <button
                   onClick={() => {
                     setEditShow(!editShow);
                   }}
-                  className="h-fit bg-gradient-to-r from-[#F06CA6] via-[#F58352] to-[#F06CA6] p-1 px-2 m-1 flex items-center rounded-full text-gray-300 hover:scale-105"
+                  className="h-fit bg-[#99599d] p-1 px-2 m-1 flex items-center rounded-full text-gray-300 hover:scale-105"
                 >
                   Editar Visita
                 </button>
@@ -88,7 +113,7 @@ const VisitShow = ({ idDog, item, counter }) => {
         </div>
       ) : (
         <EditVisit
-        idDog={idDog}
+          idDog={idDog}
           item={item}
           counter={counter}
           editShow={editShow}

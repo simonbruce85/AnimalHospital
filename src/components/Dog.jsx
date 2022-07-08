@@ -24,45 +24,12 @@ const Dog = ({ idDog, item }) => {
             className=" bg-gradient-to-r from-[#F06CA6] via-[#F58352] to-[#F06CA6] p-1 px-2 m-1 flex items-center rounded-full text-gray-300 hover:scale-105"
             onClick={() => navigate("/newVisit", { state: { idDog: idDog, dogName: item.dogName, ownersName: item.ownersName }, })}
           >
-            <BiBookAdd className="text-xl mr-1" /> Agregar Nueva Consulta
+            <BiBookAdd className="text-xl mr-1" /> Nueva Consulta
           </button>
           <button
             className="h-fit bg-gradient-to-r from-[#F06CA6] via-[#F58352] to-[#F06CA6] p-1 px-2 m-1 flex items-center rounded-full text-gray-300 hover:scale-105"
             onClick={() =>
               navigate("/History", {
-                state: {
-                  idDog: idDog,
-                  dogName: item.dogName,
-                  breed: item.breed,
-                  color: item.color,
-                  weight: item.weight,
-                  birthday: item.birthday,
-                  ownersName: item.ownersName,
-                  address: item.address,
-                  phone: item.phone,
-                  notes: item.notes,
-                  notesOwner: item.notesOwner,
-                  healthConditions: item.healthConditions,
-                  notesHistory: item.notesHistory,
-                  dateAdded: item.dateAdded,
-                  parvo: item.parvo,
-                  quintuple: item.quintuple,
-                  sextuple: item.sextuple,
-                  kc: item.kc,
-                  giardia: item.giardia,
-                  rabia: item.rabia,
-                  imgFile: item.imgFile,
-                  visit: item?.visit
-                },
-              })
-            }
-          >
-            <BsFileMedical className="text-xl mr-1" /> Ver Historial
-          </button>
-          <button
-            className="h-fit bg-gradient-to-r from-[#F06CA6] via-[#F58352] to-[#F06CA6] p-1 px-2 m-1 flex items-center rounded-full text-gray-300 hover:scale-105"
-            onClick={() =>
-              navigate("/temporary", {
                 state: {
                   idDog: idDog,
                   dogName: item.dogName,
@@ -91,7 +58,7 @@ const Dog = ({ idDog, item }) => {
               })
             }
           >
-            <BsFileMedical className="text-xl mr-1" /> Temporary
+            <BsFileMedical className="text-xl mr-1" /> Ver Historial
           </button>
         </div>
       )}
