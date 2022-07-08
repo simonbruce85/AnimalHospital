@@ -76,10 +76,10 @@ const Sidebar = () => {
           <li className="py-6 text-4xl text-gray-200"   >
             Dashboard
           </li>
-          <li className="py-6 text-4xl" onClick={() => navigate("/visit")}  >
+          <li className="py-6 text-4xl" onClick={() => {navigate("/visit"); handleClick();}}  >
             Consulta
           </li>
-          <li className="py-6 text-4xl" onClick={() => navigate("/register")}>
+          <li className="py-6 text-4xl" onClick={() => {navigate("/register"); handleClick();}}>
             Registrar
           </li>
           <li className="py-6 text-4xl"
