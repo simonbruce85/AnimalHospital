@@ -69,13 +69,13 @@ const dogsCalla = () => { onSnapshot(q, (querySnapshot) => {
         </div>
       </div>
       {/*Container*/}
-      <div className="w-full grid grid-cols-4 text-gray-300 bg-gradient-to-r from-[#F06CA6] via-[#F58352] to-[#F06CA6] rounded-t-lg  justify-between p-2 h-full mt-4 ">
+      <div className="w-full grid grid-cols-4 text-black rounded-t-lg  justify-between p-2 h-full mt-4 ">
       <p></p>
       <p>Nombre del paciente</p>
         <p>Nombre del dueño</p>
         <p>Raza</p>
       </div>
-      <div className="border-x border-b border-black rounded-b-xl" >
+      <div className="border rounded  rounded-b-xl mb-4" >
         <div>
           {filteredDogs?.map((item) => (
             <Dog item={item.data} idDog={item.id} key={item.id} />
