@@ -34,7 +34,7 @@ const VisitShow = ({ idDog, item, counter }) => {
       {editShow ? (
         <div className="flex justify-center items-center">
           {showMore && (
-            <div className="pt-2 flex flex-col justify-center items-center">
+            <div className="pt-2 flex flex-col md:justify-center md:items-center">
               <div className="grid grid-cols-2 m-1 items-center">
                 <p className="border-gray-400 mx-8 ">Razon de la visita:</p>
                 <p>{item.visitReason}</p>
@@ -70,7 +70,8 @@ const VisitShow = ({ idDog, item, counter }) => {
               )}
               <div className="grid grid-cols-2 m-1 items-center">
                 <p className="border-gray-400 mx-8 ">Vacunas:</p>
-                <div className="w-full flex border-gray-400">
+                <div className="w-full flex flex-col border-gray-400">
+                  <div className="flex">
                   <div className="">
                     <p className="flex justify-between items-center">
                       Parvo {item.parvo ? <FaCheck /> : <FaTimes />}
@@ -92,11 +93,13 @@ const VisitShow = ({ idDog, item, counter }) => {
                     <p className="flex justify-between items-center ">
                       Rabia {item.rabia ? <FaCheck /> : <FaTimes />}
                     </p>
-                    <p className="flex justify-between items-center">
+                  </div>
+                  </div>
+                  <p className="flex items-center">
                       Desparasitación {item.despara ? <FaCheck /> : <FaTimes />}
                     </p>
-                  </div>
                 </div>
+                
               </div>
               <div className=" border-gray-400 flex items-center justify-center pb-4">
                 <button

@@ -52,12 +52,12 @@ const DogDetails = () => {
 
   return (
     <div className="w-full p-4 min-h-screen h-full flex justify-center items-center bg-[#f8e5f9]">
-      <div className=" md:w-2/3 md:flex h-full pt-16">
-        <div className="md:w-1/3 flex flex-col md:pt-16">
+      <div className=" lg:w-10/12 lg:flex h-full pt-16">
+        <div className="lg:w-1/3 flex flex-col md:pt-16">
           <div className="flex justify-center items-center mb-4">
             <img src={dogPic} className=" w-[200px] rounded-full " />
           </div>
-          <div className="hidden md:flex justify-center items-center flex-col">
+          <div className="hidden lg:flex justify-center items-center flex-col">
             <h1 className="text-3xl">{dogName}</h1>
             <p>{breed}</p>
             <p>{ownersName}</p>
@@ -66,7 +66,7 @@ const DogDetails = () => {
           </div>
         </div>
         <div className="flex flex-col min-h-screen h-full">
-          <div className="md:grid md:grid-cols-2 md:gap-4 md:h-1/2">
+          <div className="lg:grid lg:grid-cols-2 lg:gap-4 lg:h-1/2">
             <div className="">
               <div className=" p-1 flex text-lg">Informacion de la Mascota</div>
               <div className="mb-4 border-2 border-gray-400 rounded-lg shadow-lg bg-[#e6d7e7] min-h-[90%] p-4">
