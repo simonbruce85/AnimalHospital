@@ -95,7 +95,7 @@ const DogDetails = () => {
           {showMore?(<>
             <img
               src={dogPic ? dogPic : dogUknown}
-              className=" w-[200px]  rounded-full "
+              className=" w-[100px] h-[100px]  rounded-full "
             />
             <div className="h-full w-full absolute bg-black rounded-full opacity-70"></div>
             <div className="flex flex-col justify-center items-center absolute">
@@ -114,7 +114,7 @@ const DogDetails = () => {
             </>)
         :<img
         src={dogPic ? dogPic : dogUknown}
-        className=" w-[200px]  rounded-full "
+        className=" w-[200px] h-[200px] md:h-fit  rounded-full "
       />}
             <button
               className="absolute bottom-10 right-0  bg-[#99599d] flex p-2 rounded-full text-gray-300 hover:scale-105"
