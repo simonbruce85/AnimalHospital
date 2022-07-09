@@ -161,7 +161,7 @@ const DogDetails = () => {
                 </div>
                 <div className="grid grid-cols-2 m-1 items-center ">
                   <p className="border-gray-400 mx-8 ">Vacunas:</p>
-                  <div className="w-full flex">
+                  <div className="w-full flex flex-col md:flex-row">
                     <div>
                       <p className="flex justify-between items-center">
                         Parvo {parvo ? <FaCheck /> : <FaTimes />}
@@ -173,7 +173,7 @@ const DogDetails = () => {
                         Sextuple {sextuple ? <FaCheck /> : <FaTimes />}
                       </p>
                     </div>
-                    <div className="px-4">
+                    <div className="md:px-4">
                       <p className="flex justify-between items-center">
                         KC {kc ? <FaCheck /> : <FaTimes />}
                       </p>

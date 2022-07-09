@@ -71,7 +71,7 @@ const VisitShow = ({ idDog, item, counter }) => {
               <div className="grid grid-cols-2 m-1 items-center">
                 <p className="border-gray-400 mx-8 ">Vacunas:</p>
                 <div className="w-full flex flex-col border-gray-400">
-                  <div className="flex">
+                  <div className="flex flex-col md:flex-row">
                   <div className="">
                     <p className="flex justify-between items-center">
                       Parvo {item.parvo ? <FaCheck /> : <FaTimes />}
@@ -83,7 +83,7 @@ const VisitShow = ({ idDog, item, counter }) => {
                       Sextuple {item.sextuple ? <FaCheck /> : <FaTimes />}
                     </p>
                   </div>
-                  <div className="px-4">
+                  <div className="md:px-4">
                     <p className="flex justify-between items-center">
                       KC {item.kc ? <FaCheck /> : <FaTimes />}
                     </p>
@@ -95,7 +95,7 @@ const VisitShow = ({ idDog, item, counter }) => {
                     </p>
                   </div>
                   </div>
-                  <p className="flex items-center">
+                  <p className="flex justify-between items-center  md:justify-start">
                       Desparasitación {item.despara ? <FaCheck /> : <FaTimes />}
                     </p>
                 </div>

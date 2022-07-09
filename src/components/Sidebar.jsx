@@ -62,7 +62,7 @@ const Sidebar = () => {
         </button>
 
         {/* Hamburger */}
-        <div onClick={handleClick} className="md:hidden fixed z-20 flex items-center text-gray-300">
+        <div onClick={handleClick} className="md:hidden  z-20 flex items-center text-gray-300">
           {!nav ? <FaBars /> : <FaTimes />}
         </div>
           {/*MOBILE MENU*/}
