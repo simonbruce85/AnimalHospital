@@ -10,7 +10,7 @@ const Dog = ({ idDog, item }) => {
 
   return (
     <div className=" w-full border border-gray-400  rounded-xl mb-2 bg-[#e6d7e7] shadow-md shadow-gray-400 ">
-      <div className="w-full grid grid-cols-5 p-2 h-full items-center ">
+      <div className="w-full flex justify-between md:justify-start md:grid md:grid-cols-5 p-2 h-full items-center ">
         <div className="flex">
           <img
             src={item.dogPic? item.dogPic : dogUknown}
@@ -19,10 +19,10 @@ const Dog = ({ idDog, item }) => {
           />
         </div>
           <p className=" flex">{item.dogName}</p>
-          <p className=" flex">{item.ownersName}</p>
-          <p className=" flex">{item.breed}</p>
+          <p className=" flex flex-wrap">{item.ownersName}</p>
+          <p className="hidden sm:flex">{item.breed}</p>
         <div className="flex justify-between items-center">
-          <div>{item.phone}</div>
+          <div className="hidden lg:flex">{item.phone}</div>
           <div className="flex justify-center items-center">
           <button
             className=" bg-[#99599d] flex my-1 pl-2 py-1 pr-1 rounded-xl text-gray-300 hover:scale-105"
