@@ -8,27 +8,38 @@ const Dog = ({ idDog, item }) => {
   const navigate = useNavigate();
   return (
     <div className=" w-full border border-gray-400  rounded-xl mb-2 bg-[#e6d7e7] shadow-md shadow-gray-400 ">
-      <div
-        className="w-full grid grid-cols-4 justify-between p-2 h-full items-center "
-        onClick={() => {
-          setShowMore(!showMore);
-        }}
-      >
-        <img src={item.dogPic} alt="" className="h-[60px] w-[60px] rounded-full"/>
-        <p>{item.dogName}</p>
-        <p>{item.ownersName}</p>
-        <p>{item.breed}</p>
-      </div>
-      {showMore && (
-        <div className="flex justify-center h-[10vh] items-center ">
+      <div className="w-full grid grid-cols-5 p-2 h-full items-center ">
+        <div className="flex">
+          <img
+            src={item.dogPic}
+            alt=""
+            className="h-[60px] w-[60px] rounded-full "
+          />
+        </div>
+          <p className=" flex">{item.dogName}</p>
+          <p className=" flex">{item.ownersName}</p>
+          <p className=" flex">{item.breed}</p>
+        <div className="flex justify-between items-center">
+          <div>{item.phone}</div>
+          <div className="flex justify-center items-center">
           <button
-            className=" bg-gradient-to-r from-[#F06CA6] via-[#F58352] to-[#F06CA6] p-1 px-2 m-1 flex items-center rounded-full text-gray-300 hover:scale-105"
-            onClick={() => navigate("/newVisit", { state: { idDog: idDog, dogName: item.dogName, ownersName: item.ownersName }, })}
+            className=" bg-[#99599d] flex my-1 pl-2 py-1 pr-1 rounded-xl text-gray-300 hover:scale-105"
+            onClick={() =>
+              navigate("/newVisit", {
+                state: {
+                  idDog: idDog,
+                  dogName: item.dogName,
+                  ownersName: item.ownersName,
+                },
+              })
+            }
+            alt="Nueva Visita"
+            title="Nueva Visita"
           >
-            <BiBookAdd className="text-xl mr-1" /> Nueva Consulta
+            <BiBookAdd className="text-xl mr-1" /> 
           </button>
           <button
-            className="h-fit bg-gradient-to-r from-[#F06CA6] via-[#F58352] to-[#F06CA6] p-1 px-2 m-1 flex items-center rounded-full text-gray-300 hover:scale-105"
+            className=" bg-[#99599d] flex mx-1 pl-2 py-1 pr-1 rounded-xl text-gray-300 hover:scale-105"
             onClick={() =>
               navigate("/History", {
                 state: {
@@ -54,15 +65,16 @@ const Dog = ({ idDog, item }) => {
                   rabia: item.rabia,
                   dogPic: item.dogPic,
                   imgFile: item.imgFile,
-                  visit: item?.visit
+                  visit: item?.visit,
                 },
               })
             }
           >
-            <BsFileMedical className="text-xl mr-1" /> Ver Historial
+            <BsFileMedical className="text-xl mr-1" />
           </button>
+          </div>
         </div>
-      )}
+      </div>
     </div>
   );
 };

@@ -87,10 +87,6 @@ const DogDetails = () => {
                   <p>{weight}</p>
                 </div>
                 <div className="grid grid-cols-2 m-1 items-center">
-                  <p className="border-gray-400 mx-8 ">Raza:</p>
-                  <p>{breed}</p>
-                </div>
-                <div className="grid grid-cols-2 m-1 items-center">
                   <p className="border-gray-400 mx-8 ">Fecha de Nacimiento</p>
                   <p>{birthday}</p>
                 </div>

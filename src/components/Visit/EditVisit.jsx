@@ -77,7 +77,7 @@ const toggleRemoveVisit = async (e) => {
           rabia: dataToDelete.rabia,
           diagnostic: dataToDelete.diagnostic,
           clinicTreatment: dataToDelete.clinicTreatment,
-          houseTreatment: dataToDelete.clinicTreatment,
+          houseTreatment: dataToDelete.houseTreatment,
           despara: dataToDelete.despara,
           exams: dataToDelete.exams,
           imgFile: {
@@ -115,7 +115,7 @@ navigate("/visit")
                   rabia: formData.rabia,
                   diagnostic: formData.diagnostic,
                   clinicTreatment: formData.clinicTreatment,
-                  houseTreatment: formData.clinicTreatment,
+                  houseTreatment: formData.houseTreatment,
                   despara: formData.despara,
                   exams: formData.exams,
                   imgFile: {

@@ -69,11 +69,12 @@ const dogsCalla = () => { onSnapshot(q, (querySnapshot) => {
         </div>
       </div>
       {/*Container*/}
-      <div className="w-full grid grid-cols-4 text-black rounded-t-lg  justify-between p-2 h-full mt-4 ">
-      <p></p>
-      <p>Nombre del paciente</p>
-        <p>Nombre del dueño</p>
-        <p>Raza</p>
+      <div className="w-full grid grid-cols-5  p-2 h-full mt-4 text-lg">
+      <p ></p>
+      <p className="">Mascota</p>
+        <p className="">Dueño</p>
+        <p className="">Raza</p>
+        <p className="">Telefono</p>
       </div>
       <div className="border rounded  rounded-b-xl mb-4" >
         <div>
