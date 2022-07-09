@@ -50,10 +50,10 @@ const Sidebar = () => {
             <div className="hidden lg:inline-block pl-3"><p className="text-left">Registrar</p></div>
             
           </li>
-          <li className="hidden md:flex  my-4 px-1 text-gray-400 hover:text-gray-200 cursor-pointer hover:border-r-2  border-gray-200  justify-center lg:justify-start items-center">
+          {/* <li className="hidden md:flex  my-4 px-1 text-gray-400 hover:text-gray-200 cursor-pointer hover:border-r-2  border-gray-200  justify-center lg:justify-start items-center">
             <BsFileMedical />
             <div className="hidden lg:inline-block pl-3">Historial</div>
-          </li>
+          </li> */}
         </ul>
 
         <button onClick={handleLogout} className="hidden md:flex my-4 px-1 text-gray-400 hover:text-gray-200 cursor-pointer hover:border-r-2  border-gray-200  justify-center lg:justify-start items-center">
@@ -82,11 +82,11 @@ const Sidebar = () => {
           <li className="py-6 text-4xl" onClick={() => {navigate("/register"); handleClick();}}>
             Registrar
           </li>
-          <li className="py-6 text-4xl"
+          {/* <li className="py-6 text-4xl"
               onClick={handleClick}
             >
               Historial
-          </li>
+          </li> */}
             <button className="py-6 text-4xl" onClick={handleLogout}>
               Salir
             </button>
