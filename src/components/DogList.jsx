@@ -42,7 +42,7 @@ const dogsCalla = () => { onSnapshot(q, (querySnapshot) => {
   );
 
   return (
-    <div className=" h-full sm:ml-4 px-2 pt-2 mr-4 md:ml-[170px]">
+    <div className=" h-full sm:ml-4 px-2 pt-2  md:ml-[170px]">
       <div className="h-full border border-gray-900 text-white rounded-lg ">
         <div className="flex items-center">
           <div className="m-4 text-gray-900">
@@ -78,7 +78,7 @@ const dogsCalla = () => { onSnapshot(q, (querySnapshot) => {
         <p></p>
         <p></p>
       </div>
-      <div className="border rounded  rounded-b-xl mb-4" >
+      <div className="mb-4" >
         <div>
           {filteredDogs?.map((item) => (
             <Dog item={item.data} idDog={item.id} key={item.id} />
