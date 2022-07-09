@@ -1,8 +1,8 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
 import VisitShow from "../components/Visit/VisitShow";
-import { FaCheck, FaTimes } from "react-icons/fa";
-
+import { FaCheck, FaTimes, FaUserEdit } from "react-icons/fa";
+import dogUknown from "../assets/dogUknown.png"
 const DogDetails = () => {
   const { state } = useLocation();
   const {
@@ -34,6 +34,7 @@ const DogDetails = () => {
   let counter = 0;
   const items = [];
 
+  //building the array of images or files to match and show them with their names
   if (imgFile) {
     for (const [index] of imgFile.imgUrl.entries()) {
       items.push(
@@ -53,9 +54,10 @@ const DogDetails = () => {
   return (
     <div className="w-full p-4 min-h-screen h-full flex justify-center items-center bg-[#f8e5f9]">
       <div className=" md:ml-[160px] xl:ml-0 lg:w-9/12 lg:flex h-full pt-8">
-        <div className="lg:w-1/3 flex flex-col md:pt-16">
-          <div className="flex justify-center items-center mb-4">
-            <img src={dogPic} className=" w-[200px] rounded-full " />
+        <div className="lg:w-1/3 flex flex-col md:pt-16 items-center">
+          <div className="w-fit relative flex justify-center items-center mb-4">
+            <img src={dogPic? dogPic : dogUknown} className=" w-[200px] rounded-full " />
+            <button className="absolute bottom-10 right-0  bg-[#99599d] flex p-2 rounded-full text-gray-300 hover:scale-105"><FaUserEdit/></button>
           </div>
           <div className="hidden lg:flex justify-center items-center flex-col">
             <h1 className="text-3xl">{dogName}</h1>
@@ -140,7 +142,7 @@ const DogDetails = () => {
                 </div>
                 <div className="grid grid-cols-2 m-1 items-center">
                   <p className="border-gray-400 mx-8 ">Notas</p>
-                  <p>{ownersName}</p>
+                  <p>{notesOwner}</p>d
                 </div>
               </div>
             </div>

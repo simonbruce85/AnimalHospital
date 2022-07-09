@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { BiBookAdd } from "react-icons/bi";
 import { BsFileMedical } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
+import dogUknown from "../assets/dogUknown.png"
 
 const Dog = ({ idDog, item }) => {
   const [showMore, setShowMore] = useState(false);
@@ -11,7 +12,7 @@ const Dog = ({ idDog, item }) => {
       <div className="w-full grid grid-cols-5 p-2 h-full items-center ">
         <div className="flex">
           <img
-            src={item.dogPic}
+            src={item.dogPic? item.dogPic : dogUknown}
             alt=""
             className="h-[60px] w-[60px] rounded-full "
           />
