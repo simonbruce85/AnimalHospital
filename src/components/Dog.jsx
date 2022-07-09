@@ -7,6 +7,7 @@ import dogUknown from "../assets/dogUknown.png"
 const Dog = ({ idDog, item }) => {
   const [showMore, setShowMore] = useState(false);
   const navigate = useNavigate();
+
   return (
     <div className=" w-full border border-gray-400  rounded-xl mb-2 bg-[#e6d7e7] shadow-md shadow-gray-400 ">
       <div className="w-full grid grid-cols-5 p-2 h-full items-center ">

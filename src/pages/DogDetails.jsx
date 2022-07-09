@@ -1,10 +1,16 @@
-import React from "react";
-import { useLocation } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import VisitShow from "../components/Visit/VisitShow";
 import { FaCheck, FaTimes, FaUserEdit } from "react-icons/fa";
-import dogUknown from "../assets/dogUknown.png"
+import dogUknown from "../assets/dogUknown.png";
+import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
+import { db, storage } from "../firebase";
+import { doc, updateDoc } from "firebase/firestore";
+import { v4 } from "uuid";
 const DogDetails = () => {
   const { state } = useLocation();
+  const navigate = useNavigate();
+  const [showMore, setShowMore] = useState(false);
   const {
     idDog,
     dogName,
@@ -34,6 +40,35 @@ const DogDetails = () => {
   let counter = 0;
   const items = [];
 
+  const [imageUrls, setImageUrls] = useState([]);
+
+  const uploadFile = (imageUpload) => {
+    if (imageUpload == null) return;
+    const imageRef = ref(storage, `images/${imageUpload.name + v4()}`);
+    uploadBytes(imageRef, imageUpload).then((snapshot) => {
+      getDownloadURL(snapshot.ref).then((url) => {
+        setImageUrls(url);
+        alert("subido Correctamente")
+      });
+    });
+    
+  };
+
+  console.log(imageUrls);
+
+  const dogID = doc(db, "users", `${idDog}`);
+
+  const toggleUpdatePicture = async (e) => {
+    try {
+      await updateDoc(dogID, {
+        dogPic: imageUrls,
+      });
+      navigate("/visit");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   //building the array of images or files to match and show them with their names
   if (imgFile) {
     for (const [index] of imgFile.imgUrl.entries()) {
@@ -52,12 +87,43 @@ const DogDetails = () => {
   }
 
   return (
-    <div className="w-full p-4 min-h-screen h-full flex justify-center items-center bg-[#f8e5f9]">
-      <div className=" md:ml-[160px] xl:ml-0 lg:w-9/12 lg:flex h-full pt-8">
+    <div className="w-full p-4 min-h-screen h-full flex justify-center items-center  bg-[#f8e5f9]">
+      <div className=" md:ml-[160px] xl:ml-0 lg:w-9/12 lg:flex h-full pt-8 ">
         <div className="lg:w-1/3 flex flex-col md:pt-16 items-center">
+          
           <div className="w-fit relative flex justify-center items-center mb-4">
-            <img src={dogPic? dogPic : dogUknown} className=" w-[200px] rounded-full " />
-            <button className="absolute bottom-10 right-0  bg-[#99599d] flex p-2 rounded-full text-gray-300 hover:scale-105"><FaUserEdit/></button>
+          {showMore?(<>
+            <img
+              src={dogPic ? dogPic : dogUknown}
+              className=" w-[200px]  rounded-full "
+            />
+            <div className="h-full w-full absolute bg-black rounded-full opacity-70"></div>
+            <div className="flex flex-col justify-center items-center absolute">
+              <input
+                className="bg-[#99599d] flex p-1  rounded-lg text-gray-300 hover:scale-105 w-[107px]"
+                type="file"
+                onChange={(e) => {
+                  uploadFile(e.target.files[0]);
+                }}
+              />
+              <button className="bg-[#99599d] flex p-1 rounded-lg m-2 text-gray-300 hover:scale-105"
+              onClick={toggleUpdatePicture}>
+                Actualizar Foto
+              </button>
+            </div>
+            </>)
+        :<img
+        src={dogPic ? dogPic : dogUknown}
+        className=" w-[200px]  rounded-full "
+      />}
+            <button
+              className="absolute bottom-10 right-0  bg-[#99599d] flex p-2 rounded-full text-gray-300 hover:scale-105"
+              onClick={() => {
+                setShowMore(!showMore);
+              }}
+            >
+              <FaUserEdit />
+            </button>
           </div>
           <div className="hidden lg:flex justify-center items-center flex-col">
             <h1 className="text-3xl">{dogName}</h1>
@@ -66,8 +132,9 @@ const DogDetails = () => {
             <p>{phone}</p>
             <p>{address}</p>
           </div>
+          
         </div>
-        <div className="flex flex-col min-h-screen h-full">
+        <div className="flex flex-col h-full">
           <div className="lg:grid lg:grid-cols-2 lg:gap-4 lg:h-1/2">
             <div className="">
               <div className=" p-1 flex text-lg">Informacion de la Mascota</div>

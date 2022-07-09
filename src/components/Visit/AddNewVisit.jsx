@@ -21,14 +21,13 @@ const date = `${timeNow.getDate()}/${timeNow.getMonth() + 1}/${timeNow.getFullYe
 
 const AddNewVisit = () => {
   //file upload
-  const [imageUpload, setImageUpload] = useState(null);
   const [imageUrls, setImageUrls] = useState([]);
   const [imageName, setImageName] = useState([]);
 
   const { state } = useLocation();
   const { idDog, dogName, ownersName } = state;
 
-  const uploadFile = () => {
+  const uploadFile = (imageUpload) => {
     if (imageUpload == null) return;
     const imageRef = ref(storage, `images/${imageUpload.name + v4()}`);
     uploadBytes(imageRef, imageUpload).then((snapshot) => {
@@ -118,7 +117,6 @@ const AddNewVisit = () => {
           imgUrl: "",
         }
       });
-      setImageUpload(null);
       setImageUrls([]);
       setImageName([]);
     } catch (error) {
@@ -203,17 +201,9 @@ const AddNewVisit = () => {
                 <input
                   type="file"
                   onChange={(e) => {
-                    setImageUpload(e.target.files[0]);
+                    uploadFile(e.target.files[0]);
                   }}
                 />
-                <button
-                  className="bg-gradient-to-r from-[#F06CA6] via-[#F58352] to-[#F06CA6] text-white w-fit p-2 my-2 rounded-full font-bold hover:scale-105"
-                  type="button"
-                  onClick={uploadFile}
-                >
-                  {" "}
-                  Subir Examen
-                </button>
               </div>
             </div>
             <label>Vacunas</label>

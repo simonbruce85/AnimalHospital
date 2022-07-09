@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { arrayRemove, arrayUnion, doc, updateDoc } from "firebase/firestore";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { db } from "../../firebase";
 
 const EditVisit = ({ item, setEditShow, editShow, idDog,counter }) => {
@@ -283,7 +283,7 @@ navigate("/visit")
         </button>
         <button
           onClick={() => {
-            toggleRemoveVisit();
+            removeConfirm();
           }}
           className="h-fit bg-[#99599d] p-1 px-2 m-1 flex items-center rounded-full text-gray-300 hover:scale-105"
           type="button"
