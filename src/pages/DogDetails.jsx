@@ -209,7 +209,7 @@ const DogDetails = () => {
                 </div>
                 <div className="grid grid-cols-2 m-1 items-center">
                   <p className="border-gray-400 mx-8 ">Notas</p>
-                  <p>{notesOwner}</p>d
+                  <p>{notesOwner}</p>
                 </div>
               </div>
             </div>

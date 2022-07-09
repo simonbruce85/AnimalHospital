@@ -63,9 +63,9 @@ const VisitShow = ({ idDog, item, counter }) => {
               </div>
               {/*If there is any file, show the files section*/}
               {item.imgFile.imgName.length > 0 && (
-                <div className="grid grid-cols-2 m-1 items-center">
+                <div className="grid grid-cols-2 m-1 items-center ">
                 <p className="border-gray-400 mx-8 ">Archivos</p>
-                <p>{items}</p>
+                <p className="">{items}</p>
               </div>
               )}
               <div className="grid grid-cols-2 m-1 items-center">
