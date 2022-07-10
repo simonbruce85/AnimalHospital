@@ -5,6 +5,7 @@ import { AiFillFolderAdd } from "react-icons/ai";
 import { FaBars, FaDog, FaTimes } from "react-icons/fa";
 import { Link,useNavigate } from "react-router-dom";
 import { UserAuth } from "../components/AuthContext";
+import { Divide as Hamburger } from 'hamburger-react'
 
 import Logo from "../assets/dogLogo.png";
 
@@ -27,7 +28,7 @@ const Sidebar = () => {
 
   return (
     <>
-      <div className=" md:fixed flex w-full md:min-w-fit border-blue-600 md:w-1/12 md:min-h-screen h-[50px] md:h-full bg-gray-700 md:flex-col pt-6 md:justify-between p-4">
+      <div className=" md:fixed flex w-full md:min-w-fit border-blue-600 md:w-1/12 md:min-h-screen h-[50px] md:h-full bg-gray-700 md:flex-col md:pt-6 md:justify-between md:p-4">
         <div className="hidden md:inline-block hover:animate-bounce w-full">
             <img
               src={Logo}
@@ -63,7 +64,7 @@ const Sidebar = () => {
 
         {/* Hamburger */}
         <div onClick={handleClick} className="md:hidden  z-20 flex items-center text-gray-300">
-          {!nav ? <FaBars /> : <FaTimes />}
+          {<Hamburger size={19}/>}
         </div>
           {/*MOBILE MENU*/}
         <ul

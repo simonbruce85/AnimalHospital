@@ -8,18 +8,29 @@ const Dog = ({ idDog, item }) => {
   const [showMore, setShowMore] = useState(false);
   const navigate = useNavigate();
 
+
+  //If a profile picture is uploaded show it, if not show a default picture
+  const imgShow = () => {
+    if(item.dogPic && item.dogPic != ""){
+      return item.dogPic; 
+    }else {
+      return dogUknown
+    }
+  }
+
+
   return (
     <div className=" w-full border border-gray-400  rounded-xl mb-2 bg-[#e6d7e7] shadow-md shadow-gray-400 ">
       <div className="w-full flex justify-between md:justify-start md:grid md:grid-cols-5 p-2 h-full items-center ">
-        <div className="flex">
+        <div className="shrink-0">
           <img
-            src={item.dogPic? item.dogPic : dogUknown}
+            src={imgShow()}
             alt=""
             className="h-[60px] w-[60px] rounded-full "
           />
         </div>
           <p className=" flex">{item.dogName}</p>
-          <p className=" flex flex-wrap">{item.ownersName}</p>
+          <p className=" flex flex-wrap ">{item.ownersName}</p>
           <p className="hidden sm:flex">{item.breed}</p>
         <div className="flex justify-between items-center">
           <div className="hidden lg:flex">{item.phone}</div>

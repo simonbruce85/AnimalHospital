@@ -39,6 +39,14 @@ const DogDetails = () => {
 
   let counter = 0;
   const items = [];
+  //If a profile picture is uploaded show it, if not show a default picture
+  const imgShow = () => {
+    if(dogPic && dogPic != ""){
+      return dogPic; 
+    }else {
+      return dogUknown
+    }
+  }
 
   const [imageUrls, setImageUrls] = useState([]);
 
@@ -54,7 +62,6 @@ const DogDetails = () => {
     
   };
 
-  console.log(imageUrls);
 
   const dogID = doc(db, "users", `${idDog}`);
 
@@ -88,14 +95,14 @@ const DogDetails = () => {
 
   return (
     <div className="w-full p-4 min-h-screen h-full flex justify-center items-center  bg-[#f8e5f9]">
-      <div className=" md:ml-[160px] xl:ml-0 lg:w-9/12 lg:flex h-full pt-8 ">
+      <div className=" md:ml-[160px] xl:ml-0 lg:w-9/12 lg:flex min-h-[90vh] h-full pt-8 ">
         <div className="lg:w-1/3 flex flex-col md:pt-16 items-center">
           
           <div className="w-fit relative flex justify-center items-center mb-4">
           {showMore?(<>
             <img
-              src={dogPic ? dogPic : dogUknown}
-              className=" w-[100px] h-[100px]  rounded-full "
+              src={imgShow()}
+              className=" w-[200px] h-[200px]  rounded-full "
             />
             <div className="h-full w-full absolute bg-black rounded-full opacity-70"></div>
             <div className="flex flex-col justify-center items-center absolute">
@@ -113,7 +120,7 @@ const DogDetails = () => {
             </div>
             </>)
         :<img
-        src={dogPic ? dogPic : dogUknown}
+        src={imgShow()}
         className=" w-[200px] h-[200px] md:h-fit  rounded-full "
       />}
             <button
@@ -134,7 +141,7 @@ const DogDetails = () => {
           </div>
           
         </div>
-        <div className="flex flex-col h-full">
+        <div className="flex flex-col h-full md:max-w-[80%]">
           <div className="lg:grid lg:grid-cols-2 lg:gap-4 lg:h-1/2">
             <div className="">
               <div className=" p-1 flex text-lg">Informacion de la Mascota</div>
@@ -186,7 +193,7 @@ const DogDetails = () => {
                     </div>
                   </div>
                 </div>
-                <div className="grid grid-cols-2 m-1 items-center">
+                <div className="grid grid-cols-2 m-1 items-center text-justify">
                   <p className="border-gray-400 mx-8 ">notas</p>
                   <p>{notes}</p>
                 </div>
@@ -207,7 +214,7 @@ const DogDetails = () => {
                   <p className="border-gray-400 mx-8 ">Telefono</p>
                   <p>{phone}</p>
                 </div>
-                <div className="grid grid-cols-2 m-1 items-center">
+                <div className="grid grid-cols-2 m-1 items-center text-justify">
                   <p className="border-gray-400 mx-8 ">Notas</p>
                   <p>{notesOwner}</p>
                 </div>
@@ -219,7 +226,7 @@ const DogDetails = () => {
             <div className="p-1 flex items-center rounded-t-lg text-lg">
               Historial medico de la mascota
             </div>
-            <div className="mb-4 border-2 border-gray-400 rounded-lg shadow-lg bg-[#e6d7e7] p-2">
+            <div className="mb-4 border-2 border-gray-400 rounded-lg shadow-lg bg-[#e6d7e7] p-2 text-justify">
               <p className="  border-gray-400">
                 Condiciones Medicas: {healthConditions}
               </p>
@@ -235,13 +242,13 @@ const DogDetails = () => {
             <div className="p-1 flex items-center rounded-t-lg text-lg">
               Visitas
             </div>
-            <div className="">
-              {visit?.map(
+            <div >
+              {visit? visit?.map(
                 (item) => (
                   counter++,
                   (<VisitShow idDog={idDog} item={item} counter={counter} />)
                 )
-              )}
+              ): <div className="mb-4 border-2 border-gray-400 rounded-lg shadow-lg bg-[#e6d7e7] p-2 items-center flex justify-center"> No Hay Visitas Registradas</div> }
             </div>
           </div>
         </div>

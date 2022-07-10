@@ -36,6 +36,10 @@ const VisitShow = ({ idDog, item, counter }) => {
           {showMore && (
             <div className="pt-2 flex flex-col md:justify-center md:items-center">
               <div className="grid grid-cols-2 m-1 items-center">
+                <p className="border-gray-400 mx-8 ">Fecha de la visita:</p>
+                <p>{item.dateAdded}</p>
+              </div>
+              <div className="grid grid-cols-2 m-1 items-center">
                 <p className="border-gray-400 mx-8 ">Razon de la visita:</p>
                 <p>{item.visitReason}</p>
               </div>
