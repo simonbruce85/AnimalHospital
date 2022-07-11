@@ -28,26 +28,26 @@ const Sidebar = () => {
   return (
     <>
       <div className=" fixed flex w-full md:min-w-fit border-blue-600 md:w-1/12 lg:max-w-[130px] md:min-h-screen h-[50px] z-10 md:h-full bg-gray-700 md:flex-col md:pt-6 md:justify-between md:p-4">
-        <div className="hidden md:inline-block hover:animate-bounce w-full">
+        <div className="hidden md:flex justify-center items-center hover:animate-bounce w-full">
           <img src={Logo} alt="Logo Image" className="w-[70px]" />
         </div>
 
         <ul className="">
           <li
-            className="hidden md:flex  my-4 px-1 text-gray-400 hover:text-gray-200 cursor-pointer hover:border-r-2  border-gray-200 justify-center lg:justify-start items-center" /*onClick={() => navigate("/home")}*/
+            className="hidden md:flex  my-4 text-gray-400 hover:text-gray-200 cursor-pointer hover:border-r-2  border-gray-200 justify-center lg:justify-start items-center" /*onClick={() => navigate("/home")}*/
           >
             <MdSpaceDashboard />
             <div className="hidden lg:inline-block pl-3">Inicio</div>
           </li>
           <li
-            className="hidden md:flex my-4 px-1 text-gray-400 hover:text-gray-200 cursor-pointer hover:border-r-2  border-gray-200  justify-center lg:justify-start items-center"
+            className="hidden md:flex my-4  text-gray-400 hover:text-gray-200 cursor-pointer hover:border-r-2  border-gray-200  justify-center lg:justify-start items-center"
             onClick={() => navigate("/visit")}
           >
             <FaDog />
             <div className="hidden lg:inline-block pl-3">Consulta</div>
           </li>
           <li
-            className="hidden md:flex  my-4 px-1 text-gray-400 hover:text-gray-200 cursor-pointer hover:border-r-2  border-gray-200  justify-center lg:justify-start items-center"
+            className="hidden md:flex  my-4  text-gray-400 hover:text-gray-200 cursor-pointer hover:border-r-2  border-gray-200  justify-center lg:justify-start items-center"
             onClick={() => navigate("/register")}
           >
             <AiFillFolderAdd />
