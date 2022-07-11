@@ -143,9 +143,9 @@ const RegisterNew = () => {
   return (
     <>
       <Sidebar/>
-    <div className=" w-full h-full min-h-screen flex justify-center items-center bg-cover pt-16 sm:pt-0" style={{ backgroundImage: `url(${perritos})` }}>
-      <div className="md:w-1/3 min-w-fit my-6 md:mt-0 lg:min-h-[90vh] flex justify-between rounded-lg border bg-white border-black font-black p-6">
-        <div className="w-full h-auto flex flex-col justify-between  ">
+    <div className=" h-full min-h-screen flex justify-center items-center bg-cover pt-16 md:pt-2 md:ml-[50px] p-2" style={{ backgroundImage: `url(${perritos})` }}>
+      <div className="md:w-1/2 flex lg:w-1/3 w-full xl:h-[90vh]  md:mt-0 xl:min-h-[90vh] justify-between rounded-lg border bg-white border-black font-black p-6 ">
+        <div className="w-full h-full flex flex-col justify-between  ">
           <div className="flex justify-center items-center text-xl mb-4 ">
             <h1 className="border-b-4 border-[#99599d]">{FormTitles[page]}</h1>
           </div>
@@ -153,12 +153,12 @@ const RegisterNew = () => {
             onSubmit={addDog}
             className="w-full h-full flex flex-col justify-between"
           >
-            <div className="h-full">{PageDisplay()}</div>
+            <div className="h-full w-full">{PageDisplay()}</div>
             <div className="flex justify-end">
               <button
                 disabled={page == 0}
                 hidden={page == 0}
-                className="bg-[#99599d] text-white p-3 rounded-full font-bold hover:scale-105"
+                className="bg-[#99599d] text-white p-3 mt-2  rounded-full font-bold hover:scale-105"
                 type="button"
                 onClick={() => {
                   setPage((currPage) => currPage - 1);
@@ -167,7 +167,7 @@ const RegisterNew = () => {
                 Anterior
               </button>
               <button
-                className="bg-[#99599d] text-white p-3 rounded-full font-bold ml-auto hover:scale-105"
+                className="bg-[#99599d] text-white p-3 mt-2  rounded-full font-bold ml-auto hover:scale-105"
                 disabled={page == FormTitles.length - 1}
                 hidden={page == FormTitles.length - 1}
                 type="button"
@@ -178,7 +178,7 @@ const RegisterNew = () => {
                 Siguiente
               </button>
               <button
-                className="bg-[#99599d] text-white p-3 rounded-full font-bold ml-auto hover:scale-105"
+                className="bg-[#99599d] text-white p-3 mt-2  rounded-full font-bold ml-auto hover:scale-105"
                 type="submit"
                 disabled={page !== FormTitles.length - 1}
                 hidden={page !== FormTitles.length - 1}

@@ -43,10 +43,10 @@ const dogsCalla = () => { onSnapshot(q, (querySnapshot) => {
   );
 
   return (
-    <>
+    <div >
       <Sidebar />
     
-    <div className="pt-16 h-full sm:ml-4 px-2 sm:pt-4  md:ml-[170px]">
+    <div className="pt-16 h-full  px-2 md:pt-4 md:ml-[100px]  lg:ml-[140px]">
       <div className="h-full border border-gray-900 text-white rounded-lg ">
         <div className="flex items-center">
           <div className="m-4 text-gray-900">
@@ -90,7 +90,7 @@ const dogsCalla = () => { onSnapshot(q, (querySnapshot) => {
         </div>
       </div>
     </div>
-    </>
+    </div>
   );
 };
 

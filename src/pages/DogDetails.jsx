@@ -97,11 +97,11 @@ const DogDetails = () => {
   return (
     <>
       <Sidebar />
-    <div className="w-full pt-16 sm:pt-0 p-4 min-h-screen h-full flex justify-center items-center  bg-[#f8e5f9]">
-      <div className=" md:ml-[160px] xl:ml-0 lg:w-9/12 lg:flex min-h-[90vh] h-full pt-8 ">
-        <div className="lg:w-1/3 flex flex-col md:pt-16 items-center">
+    <div className="w-full px-4 sm:px-16 md:px-0   min-h-screen h-full flex justify-center items-center  bg-[#f8e5f9]">
+      <div className=" md:ml-[180px] w-full lg:ml-[140px] xl:ml-0 lg:w-9/12 lg:flex min-h-[90vh] h-full pt-16 md:pt-0">
+        <div className="md:max-w-[80%] lg:w-1/3 flex flex-col md:pt-8 lg:pt-16 items-center lg:pr-2 xl:pr-0">
           
-          <div className="w-fit relative flex justify-center items-center mb-4">
+          <div className="min-w-fit relative flex justify-center items-center mb-4 ">
           {showMore?(<>
             <img
               src={imgShow()}
@@ -109,6 +109,7 @@ const DogDetails = () => {
             />
             <div className="h-full w-full absolute bg-black rounded-full opacity-70"></div>
             <div className="flex flex-col justify-center items-center absolute ">
+              
               <input
                 className="bg-[#99599d] flex p-1  rounded-lg text-gray-300 hover:scale-105 w-[107px] "
                 type="file"
@@ -171,7 +172,7 @@ const DogDetails = () => {
                 </div>
                 <div className="grid grid-cols-2 m-1 items-center ">
                   <p className="border-gray-400 mx-8 ">Vacunas:</p>
-                  <div className="w-full flex flex-col md:flex-row">
+                  <div className="w-full flex flex-col xl:flex-row">
                     <div>
                       <p className="flex justify-between items-center">
                         Parvo {parvo ? <FaCheck /> : <FaTimes />}
@@ -183,7 +184,7 @@ const DogDetails = () => {
                         Sextuple {sextuple ? <FaCheck /> : <FaTimes />}
                       </p>
                     </div>
-                    <div className="md:px-4">
+                    <div className="xl:px-4">
                       <p className="flex justify-between items-center">
                         KC {kc ? <FaCheck /> : <FaTimes />}
                       </p>
