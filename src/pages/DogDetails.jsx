@@ -97,8 +97,8 @@ const DogDetails = () => {
   return (
     <>
       <Sidebar />
-    <div className="w-full px-4 sm:px-16 md:px-0   min-h-screen h-full flex justify-center items-center  bg-[#f8e5f9]">
-      <div className=" md:ml-[180px] w-full lg:ml-[140px] xl:ml-0 lg:w-9/12 lg:flex min-h-[90vh] h-full pt-16 md:pt-0">
+    <div className="w-full px-4 sm:px-16 md:px-0 min-h-screen h-full flex justify-center items-center  bg-[#f8e5f9]">
+      <div className=" md:ml-[180px] w-full lg:ml-[140px] xl:ml-0 lg:w-9/12 lg:flex min-h-[90vh] h-full pt-16 ">
         <div className="md:max-w-[80%] lg:w-1/3 flex flex-col md:pt-8 lg:pt-16 items-center lg:pr-2 xl:pr-0">
           
           <div className="min-w-fit relative flex justify-center items-center mb-4 ">
