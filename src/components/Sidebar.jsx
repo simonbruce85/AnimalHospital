@@ -80,7 +80,7 @@ const Sidebar = () => {
         {nav ? (
           <ul
             className={
-              "fixed translate-x-0 ease-in-out duration-300 md:hidden h-full z-10 w-1/2 rounded-r-lg pt-12 bg-gray-700 flex flex-col justify-between text-gray-200 "
+              "fixed translate-x-0 ease-in-out duration-500 md:hidden h-full z-10 w-1/2 rounded-r-lg pt-12 bg-gray-700 flex flex-col justify-between text-gray-200 "
             }
           >
             <div>
@@ -118,7 +118,7 @@ const Sidebar = () => {
         ) : (
           <ul
           className={
-            "fixed -translate-x-full ease-in-out duration-300 md:hidden h-full z-10 w-1/2 rounded-r-lg pt-12 bg-gray-700 flex flex-col justify-between text-gray-200 "
+            "fixed -translate-x-full ease-in-out duration-500 md:hidden h-full z-10 w-1/2 rounded-r-lg pt-12 bg-gray-700 flex flex-col justify-between text-gray-200 "
           }
         >
           <div>
