@@ -3,7 +3,7 @@ import React from 'react'
 const RegisterOwner = ({formData, setFormData,formErrors}) => {
   return (
     <div
-    className=" flex flex-col font-semibold h-full w-full"
+    className=" flex flex-col "
   >
             <label>Nombre del dueño</label>
             <input

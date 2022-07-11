@@ -9,10 +9,9 @@ import {
 
 const RegisterDog = ({formData, setFormData}) => {
 
-  const [imageUpload, setImageUpload] = useState(null);
   const [imageUrls, setImageUrls] = useState([]);
 
-  const uploadFile = () => {
+  const uploadFile = (imageUpload) => {
     if (imageUpload == null) return;
     const imageRef = ref(storage, `images/${imageUpload.name + v4()}`);
     uploadBytes(imageRef, imageUpload).then((snapshot) => {
@@ -44,7 +43,7 @@ useEffect(() => {
             <label>Raza</label>
             <input
               onChange={(e) => setFormData({...formData, breed: e.target.value})}
-              className="p-3 my-2 border border-black rounded"
+              className="p-3 my-2 border border-black rounded accent-pink-500"
               placeholder="Raza"
               value={formData.breed}
               required
@@ -87,10 +86,9 @@ useEffect(() => {
             <input
                 type="file"
                 onChange={(e) => {
-                  setImageUpload(e.target.files[0]);
+                  uploadFile(e.target.files[0]);
                 }}
                 />
-              <button className="bg-gradient-to-r from-[#F06CA6] via-[#F58352] to-[#F06CA6] text-white w-fit p-2 my-2 rounded-full font-bold hover:scale-105"  type="button" onClick={uploadFile}> Subir Foto</button>
                 </div>
           </div>
           

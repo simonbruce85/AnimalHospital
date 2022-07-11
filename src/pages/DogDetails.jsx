@@ -7,6 +7,7 @@ import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { db, storage } from "../firebase";
 import { doc, updateDoc } from "firebase/firestore";
 import { v4 } from "uuid";
+import Sidebar from "../components/Sidebar";
 const DogDetails = () => {
   const { state } = useLocation();
   const navigate = useNavigate();
@@ -94,7 +95,9 @@ const DogDetails = () => {
   }
 
   return (
-    <div className="w-full p-4 min-h-screen h-full flex justify-center items-center  bg-[#f8e5f9]">
+    <>
+      <Sidebar />
+    <div className="w-full pt-16 sm:pt-0 p-4 min-h-screen h-full flex justify-center items-center  bg-[#f8e5f9]">
       <div className=" md:ml-[160px] xl:ml-0 lg:w-9/12 lg:flex min-h-[90vh] h-full pt-8 ">
         <div className="lg:w-1/3 flex flex-col md:pt-16 items-center">
           
@@ -102,12 +105,12 @@ const DogDetails = () => {
           {showMore?(<>
             <img
               src={imgShow()}
-              className=" w-[200px] h-[200px]  rounded-full "
+              className=" w-[200px] h-[200px] md:h-fit  rounded-full "
             />
             <div className="h-full w-full absolute bg-black rounded-full opacity-70"></div>
-            <div className="flex flex-col justify-center items-center absolute">
+            <div className="flex flex-col justify-center items-center absolute ">
               <input
-                className="bg-[#99599d] flex p-1  rounded-lg text-gray-300 hover:scale-105 w-[107px]"
+                className="bg-[#99599d] flex p-1  rounded-lg text-gray-300 hover:scale-105 w-[107px] "
                 type="file"
                 onChange={(e) => {
                   uploadFile(e.target.files[0]);
@@ -254,6 +257,7 @@ const DogDetails = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

@@ -3,7 +3,7 @@ import { arrayRemove, arrayUnion, doc, updateDoc } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 import { db } from "../../firebase";
 
-const EditVisit = ({ item, setEditShow, editShow, idDog,counter }) => {
+const EditVisit = ({ item, setEditShow, editShow, idDog }) => {
 
     const navigate = useNavigate();
 
@@ -207,6 +207,7 @@ navigate("/visit")
               }
               type="checkbox"
               defaultChecked={formData.parvo}
+              className="accent-[#99599d]"
             />
           </p>
           <p>
@@ -217,6 +218,7 @@ navigate("/visit")
               }
               type="checkbox"
               defaultChecked={formData.quintuple}
+              className="accent-[#99599d]"
             />
           </p>
           <p>
@@ -227,6 +229,7 @@ navigate("/visit")
               }
               type="checkbox"
               defaultChecked={formData.sextuple}
+              className="accent-[#99599d]"
             />
           </p>
         </div>
@@ -237,6 +240,7 @@ navigate("/visit")
               onChange={(e) => setFormData({ ...formData, kc: !formData.kc })}
               type="checkbox"
               defaultChecked={formData.kc}
+              className="accent-[#99599d]"
             />
           </p>
           <p>
@@ -247,6 +251,7 @@ navigate("/visit")
               }
               type="checkbox"
               defaultChecked={formData.giardia}
+              className="accent-[#99599d]"
             />
           </p>
           <p>
@@ -257,6 +262,7 @@ navigate("/visit")
               }
               type="checkbox"
               defaultChecked={formData.rabia}
+              className="accent-[#99599d]"
             />
           </p>
           <p>
@@ -267,6 +273,7 @@ navigate("/visit")
               }
               type="checkbox"
               defaultChecked={formData.despara}
+              className="accent-[#99599d]"
             />
           </p>
         </div>

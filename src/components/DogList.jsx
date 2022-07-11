@@ -14,6 +14,7 @@ import { RiTimer2Line } from "react-icons/ri";
 import { UserAuth } from "./AuthContext";
 import { db } from "../firebase";
 import Dog from "./Dog";
+import Sidebar from "./Sidebar";
 
 const DogList = () => {
   const [dogs, setDogs] = useState([]);
@@ -42,7 +43,10 @@ const dogsCalla = () => { onSnapshot(q, (querySnapshot) => {
   );
 
   return (
-    <div className=" h-full sm:ml-4 px-2 pt-2  md:ml-[170px]">
+    <>
+      <Sidebar />
+    
+    <div className="pt-16 h-full sm:ml-4 px-2 sm:pt-4  md:ml-[170px]">
       <div className="h-full border border-gray-900 text-white rounded-lg ">
         <div className="flex items-center">
           <div className="m-4 text-gray-900">
@@ -86,6 +90,7 @@ const dogsCalla = () => { onSnapshot(q, (querySnapshot) => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

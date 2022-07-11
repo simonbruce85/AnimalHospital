@@ -1,6 +1,7 @@
 import {
   arrayUnion,
   doc,
+  increment,
   updateDoc,
 } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
@@ -12,6 +13,7 @@ import perritos from "../../assets/perritos.webp";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { storage } from "../../firebase";
 import { v4 } from "uuid";
+import Sidebar from "../Sidebar";
 {
   /*File upload imports */
 }
@@ -62,6 +64,7 @@ const AddNewVisit = () => {
     clinicTreatment: "",
     houseTreatment: "",
     despara: false,
+    visitCount: "",
     exams: "",
     imgFile: {
       imgName: "",
@@ -86,6 +89,7 @@ const AddNewVisit = () => {
           kc: formData.kc,
           giardia: formData.giardia,
           rabia: formData.rabia,
+          visitCount: increment(1),
           diagnostic: formData.diagnostic,
           clinicTreatment: formData.clinicTreatment,
           houseTreatment: formData.clinicTreatment,
@@ -108,6 +112,7 @@ const AddNewVisit = () => {
         giardia: false,
         rabia: false,
         diagnostic: "",
+        visitCount: "",
         clinicTreatment: "",
         houseTreatment: "",
         despara: false,
@@ -125,14 +130,16 @@ const AddNewVisit = () => {
   };
 
   return (
+    <>
+      <Sidebar />
     <div
-      className=" w-full h-full min-h-screen flex justify-center items-center bg-cover "
+      className=" w-full h-full min-h-screen flex justify-center items-center bg-cover pt-16 sm:pt-0"
       style={{ backgroundImage: `url(${perritos})` }}
     >
       <div className="md:w-1/3 min-w-fit h-fit my-6 md:mt:0 flex justify-between rounded-lg border bg-white border-black font-black p-6">
         <div className="w-full h-full flex flex-col ">
           <div className=" w-full mb-2 flex justify-center items-center">
-            <p className="border-b-2 border-[#F58352]">
+            <p className="border-b-2 border-[#99599d]">
               Hola, {dogName} mascota de {ownersName}
             </p>
           </div>
@@ -197,6 +204,7 @@ const AddNewVisit = () => {
                 placeholder="Examenes Realizados"
                 value={formData.exams}
               />
+              <label className="py-2">Subir Archivo</label>
               <div className="flex flex-col">
                 <input
                   type="file"
@@ -206,9 +214,9 @@ const AddNewVisit = () => {
                 />
               </div>
             </div>
-            <label>Vacunas</label>
-            <div className="p-3 my-2 border border-black rounded grid grid-cols-2 min-h-fit">
-              <div className="flex items-center justify-between w-2/3">
+            <label className="pt-2">Vacunas</label>
+            <div className=" p-3 my-2 border border-black rounded grid grid-cols-2 min-h-fit">
+              <div className="flex items-center justify-between w-2/3 accent-[#99599d]">
                 Parvovirosis{" "}
                 <input
                   onChange={(e) =>
@@ -217,7 +225,7 @@ const AddNewVisit = () => {
                   type="checkbox"
                 />
               </div>
-              <div className="flex items-center justify-between w-2/3">
+              <div className="flex items-center justify-between w-2/3 accent-[#99599d] ">
                 Quintuple{" "}
                 <input
                   onChange={(e) =>
@@ -226,7 +234,7 @@ const AddNewVisit = () => {
                   type="checkbox"
                 />
               </div>
-              <div className="flex items-center justify-between w-2/3">
+              <div className="flex items-center justify-between w-2/3 accent-[#99599d] ">
                 Sextuple{" "}
                 <input
                   onChange={(e) =>
@@ -235,7 +243,7 @@ const AddNewVisit = () => {
                   type="checkbox"
                 />
               </div>
-              <div className="flex items-center justify-between w-2/3">
+              <div className="flex items-center justify-between w-2/3 accent-[#99599d] ">
                 KC{" "}
                 <input
                   onChange={(e) =>
@@ -244,7 +252,7 @@ const AddNewVisit = () => {
                   type="checkbox"
                 />
               </div>
-              <div className="flex items-center justify-between w-2/3">
+              <div className="flex items-center justify-between w-2/3 accent-[#99599d] ">
                 Giardia{" "}
                 <input
                   onChange={(e) =>
@@ -253,7 +261,7 @@ const AddNewVisit = () => {
                   type="checkbox"
                 />
               </div>
-              <div className="flex items-center justify-between w-2/3">
+              <div className="flex items-center justify-between w-2/3 accent-[#99599d] ">
                 Rabia{" "}
                 <input
                   onChange={(e) =>
@@ -262,7 +270,7 @@ const AddNewVisit = () => {
                   type="checkbox"
                 />
               </div>
-              <div className="flex items-center justify-between w-2/3">
+              <div className="flex items-center justify-between w-2/3 accent-[#99599d] ">
                 Desparasitación{" "}
                 <input
                   onChange={(e) =>
@@ -275,7 +283,7 @@ const AddNewVisit = () => {
             <div></div>
             <div className="flex">
               <button
-                className="bg-gradient-to-r from-[#F06CA6] via-[#F58352] to-[#F06CA6] text-white p-3 rounded-full font-bold ml-auto hover:scale-105"
+                className="bg-[#99599d]  text-white p-3 rounded-full font-bold ml-auto hover:scale-105"
                 type="submit"
               >
                 Agregar Cita
@@ -285,6 +293,7 @@ const AddNewVisit = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

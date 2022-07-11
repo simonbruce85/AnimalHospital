@@ -9,11 +9,10 @@ import {
 
 const RegisterHistory = ({formData, setFormData}) => {
 
-  const [imageUpload, setImageUpload] = useState(null);
   const [imageUrls, setImageUrls] = useState([]);
   const [imageName, setImageName] = useState([]);
 {/* Uploading the file to firebase and adding the link to the array of documents for this dog*/}
-  const uploadFile = () => {
+  const uploadFile = (imageUpload) => {
     if (imageUpload == null) return;
     const imageRef = ref(storage, `images/${imageUpload.name + v4()}`);
     uploadBytes(imageRef, imageUpload).then((snapshot) => {
@@ -46,22 +45,22 @@ const RegisterHistory = ({formData, setFormData}) => {
             />
             <label>Vacunas</label>
             <div className='p-3 my-2 border border-black rounded grid grid-cols-2 min-h-fit'>
-            <div className='flex items-center justify-between w-2/3'>
+            <div className='flex items-center justify-between w-2/3 accent-[#99599d]'>
             Parvovirosis <input onChange={(e) => setFormData({...formData, parvo: !formData.parvo})} type="checkbox"/>
             </div>
-            <div className='flex items-center justify-between w-2/3'>
+            <div className='flex items-center justify-between w-2/3 accent-[#99599d]'>
             Quintuple <input onChange={(e) => setFormData({...formData, quintuple: !formData.quintuple})} type="checkbox"/>
             </div>
-            <div className='flex items-center justify-between w-2/3'>
+            <div className='flex items-center justify-between w-2/3 accent-[#99599d]'>
             Sextuple <input onChange={(e) => setFormData({...formData, sextuple: !formData.sextuple})} type="checkbox"/>
             </div>
-            <div className='flex items-center justify-between w-2/3'>
+            <div className='flex items-center justify-between w-2/3 accent-[#99599d]'>
             KC <input onChange={(e) => setFormData({...formData, kc: !formData.kc})} type="checkbox"/>
             </div>
-            <div className='flex items-center justify-between w-2/3'>
+            <div className='flex items-center justify-between w-2/3 accent-[#99599d]'>
             Giardia <input onChange={(e) => setFormData({...formData, giardia: !formData.giardia})} type="checkbox"/>
             </div>
-            <div className='flex items-center justify-between w-2/3'>
+            <div className='flex items-center justify-between w-2/3 accent-[#99599d]'>
             Rabia <input onChange={(e) => setFormData({...formData, rabia: !formData.rabia})} type="checkbox"/>
             </div>
             </div>
@@ -69,10 +68,9 @@ const RegisterHistory = ({formData, setFormData}) => {
             <input
                 type="file"
                 onChange={(e) => {
-                  setImageUpload(e.target.files[0]);
+                  uploadFile(e.target.files[0]);
                 }}
                 />
-              <button className="bg-gradient-to-r from-[#F06CA6] via-[#F58352] to-[#F06CA6] text-white w-fit p-2 my-2 rounded-full font-bold hover:scale-105"  type="button" onClick={uploadFile}> Subir Examen</button>
                 </div>
             <label className="">Notas</label>
             <textarea

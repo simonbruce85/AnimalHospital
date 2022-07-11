@@ -28,7 +28,7 @@ const Login = () => {
     <>
       <div className="w-full h-screem">
         <img
-          className="hidden sm:block absolute w-full h-full object-cover"
+          className="block absolute w-full h-full object-cover"
           src="https://cdn.pixabay.com/photo/2015/11/03/12/58/dalmatian-1020790_960_720.jpg"
           alt="background"
         />

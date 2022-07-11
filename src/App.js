@@ -18,16 +18,14 @@ function App() {
     <>
     
     <AuthContextProvider>
-    <Sidebar />
       <Routes>
         <Route path="/" element={<RedirectRoute><Login/></RedirectRoute>}/>
-        {/* <Route path="/home" element={<Protectedroute><Home/></Protectedroute>}/> */}
+        <Route path="/signup" element={<Signup/>}/>
         <Route path="/visit" element={<Protectedroute><DogList/></Protectedroute>}/>
         <Route path="/register" element={<Protectedroute><RegisterNew/></Protectedroute>}/>
         <Route path="/history" element={<Protectedroute><DogDetails/></Protectedroute>}/>
         <Route path="/newVisit" element={<Protectedroute><AddNewVisit/></Protectedroute>}/>
-        <Route path="/temporary" element={<Protectedroute><DogDetails/></Protectedroute>}/>
-        <Route path="/signup" element={<Signup/>}/>
+        {/* <Route path="/home" element={<Protectedroute><Home/></Protectedroute>}/> */}
       </Routes>
       </AuthContextProvider></>
    
