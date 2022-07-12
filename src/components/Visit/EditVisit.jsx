@@ -132,7 +132,7 @@ navigate("/visit")
 
   return (
     <div>
-      <p className="border-x border-b border-gray-400 w-full">
+      <p className=" w-full">
         Razon de la visita:{" "}
         <input
           onChange={(e) =>
@@ -142,7 +142,7 @@ navigate("/visit")
           value={formData.visitReason}
         ></input>
       </p>
-      <p className="border-x border-b border-gray-400">
+      <p className="">
         Sintomas:{" "}
         <input
           className="border rounded-lg border-black pl-2 w-1/2"
@@ -152,7 +152,7 @@ navigate("/visit")
           value={formData.symptoms}
         ></input>
       </p>
-      <p className="border-x border-b border-gray-400">
+      <p className="">
         Diagnostico:{" "}
         <input
           className="border rounded-lg border-black pl-2 w-1/2"
@@ -162,7 +162,7 @@ navigate("/visit")
           value={formData.diagnostic}
         ></input>
       </p>
-      <p className="border-x border-b border-gray-400">
+      <p className="">
         Tratamiento en la clinica:{" "}
         <input
           className="border rounded-lg border-black pl-2 w-1/2"
@@ -172,7 +172,7 @@ navigate("/visit")
           value={formData.clinicTreatment}
         ></input>
       </p>
-      <p className="border-x border-b border-gray-400">
+      <p className="">
         Tratamiento Indicado:{" "}
         <input
           className="border rounded-lg border-black pl-2 w-1/2"
@@ -182,7 +182,7 @@ navigate("/visit")
           value={formData.houseTreatment}
         ></input>
       </p>
-      <p className="border-x border-b border-gray-400">
+      <p className="">
         Examenes Realizados:{" "}
         <input
           className="border rounded-lg border-black pl-2 w-1/2"
@@ -192,12 +192,12 @@ navigate("/visit")
       </p>
       {/*If there is any file, show the files section*/}
       {item.imgFile.imgName.length > 0 && (
-        <div className="border-x border-b border-gray-400 flex items-center">
+        <div className=" flex items-center">
           <p>Archivos</p>
         </div>
       )}
-      <p className="pr-4 border-x border-gray-400">Vacunas:</p>
-      <div className="w-full flex border-x border-gray-400">
+      <p className="pr-4 ">Vacunas:</p>
+      <div className="w-full flex ">
         <div>
           <p>
             Parvo:{" "}
@@ -278,7 +278,7 @@ navigate("/visit")
           </p>
         </div>
       </div>
-      <div className="border-x border-gray-400 flex items-center justify-center pb-4">
+      <div className=" flex items-center justify-center pb-4">
         <button
           onClick={() => {
             toggleEditVisit();

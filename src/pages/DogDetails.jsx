@@ -226,8 +226,8 @@ const DogDetails = () => {
             </div>
           </div>
 
-          <div className="">
-            <div className="p-1 flex items-center rounded-t-lg text-lg">
+          <div className="pt-2">
+            <div className="p-1  flex items-center rounded-t-lg text-lg">
               Historial medico de la mascota
             </div>
             <div className="mb-4 border-2 border-gray-400 rounded-lg shadow-lg bg-[#e6d7e7] p-2 text-justify">

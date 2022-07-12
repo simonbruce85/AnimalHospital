@@ -4,7 +4,7 @@ import { FaCheck, FaTimes } from "react-icons/fa";
 
 const VisitShow = ({ idDog, item, counter }) => {
   const [showMore, setShowMore] = useState(false);
-  const [editShow, setEditShow] = useState(true);
+  const [editShow, setEditShow] = useState(false);
   const items = [];
   // function to show the files grabbing the information from firebase (link and name of the file)
   //the idea was using a for loop to iterate trought two different arrays at the same time
@@ -22,7 +22,7 @@ const VisitShow = ({ idDog, item, counter }) => {
     );
   }
   return (
-    <div className="mb-4 border-2 border-gray-400 rounded-lg shadow-lg bg-[#e6d7e7] p-4">
+    <div className="mb-4 border-2 border-gray-400 rounded-lg shadow-lg bg-[#e6d7e7] p-4 ">
       <p
         onClick={() => {
           setShowMore(!showMore);
@@ -31,10 +31,11 @@ const VisitShow = ({ idDog, item, counter }) => {
       >
         Visita Numero {counter}
       </p>
-      {editShow ? (
-        <div className="flex justify-center items-center">
-          {showMore && (
-            <div className="pt-2 flex flex-col md:justify-center md:items-center">
+      {/*If the button of edit is pressed,  */}
+      {!editShow ? (
+        <div className="flex justify-center items-center ">
+          {showMore ? (
+            <div className="pt-2 flex flex-col md:justify-center md:items-center ease-in-out duration-500">
               <div className="grid grid-cols-2 m-1 items-center">
                 <p className="border-gray-400 mx-8 ">Atendido Por:</p>
                 <p>{item.doctor}</p>
@@ -120,7 +121,7 @@ const VisitShow = ({ idDog, item, counter }) => {
                 </button>
               </div>
             </div>
-          )}
+          ):<div className="ease-in-out duration-500"></div>}
         </div>
       ) : (
         <EditVisit
