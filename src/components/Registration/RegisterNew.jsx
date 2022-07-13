@@ -19,6 +19,7 @@ const RegisterNew = () => {
   const [formErrors, setFormErrors] = useState({});
   const [formData, setFormData] = useState({
     dogName: "",
+    dogNamelow: "",
     breed: "",
     color: "",
     weight: "",
@@ -47,7 +48,8 @@ const RegisterNew = () => {
     e.preventDefault();
     try {
       await addDoc(collection(db, "users"), {
-        dogName: formData.dogName.toLowerCase(),
+        dogName: formData.dogName,
+        dogNamelow: formData.dogName.toLowerCase(),
         breed: formData.breed,
         color: formData.color,
         weight: formData.weight,
@@ -77,6 +79,7 @@ const RegisterNew = () => {
       setFormData({
         dogName: "",
         breed: "",
+        dogNamelow: "",
         color: "",
         weight: "",
         birthday: "",

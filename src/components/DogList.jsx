@@ -25,7 +25,7 @@ const DogList = () => {
     dogsCalla();
   }, [user?.email]);
 
-  const q = query(collection(db, "users"), orderBy("dogName", "asc"));
+  const q = query(collection(db, "users"), orderBy("dogNamelow", "asc"));
 const dogsCalla = () => { onSnapshot(q, (querySnapshot) => {
   setDogs(
     querySnapshot.docs.map((doc) => ({
