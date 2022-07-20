@@ -73,7 +73,7 @@ const dogsCalla = () => { onSnapshot(q, (querySnapshot) => {
         </div>
       </div>
       {/*Container*/}
-      <div className="w-full flex justify-between lg:justify-start lg:grid lg:grid-cols-5  p-2 h-full mt-4 text-lg">
+      <div className="w-full grid grid-cols-4 sm:grid-cols-5 lg:justify-start p-2 h-full mt-4 text-lg">
       <p></p>
       <p className="pr-4 md:pr-0">Mascota</p>
         <p className="">Dueño</p>

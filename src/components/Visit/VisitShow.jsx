@@ -37,37 +37,37 @@ const VisitShow = ({ idDog, item, counter }) => {
           {showMore ? (
             <div className="pt-2 flex flex-col md:justify-center md:items-center ease-in-out duration-500">
               <div className="grid grid-cols-2 m-1 items-center">
-                <p className="border-gray-400 mx-8 ">Atendido Por:</p>
+                <p className="border-gray-400 mx-8 flex justify-end">Atendido Por:</p>
                 <p>{item.doctor}</p>
               </div>
               <div className="grid grid-cols-2 m-1 items-center">
-                <p className="border-gray-400 mx-8 ">Fecha de la visita:</p>
+                <p className="border-gray-400 mx-8 flex justify-end">Fecha de la visita:</p>
                 <p>{item.dateAdded}</p>
               </div>
               <div className="grid grid-cols-2 m-1 items-center">
-                <p className="border-gray-400 mx-8 ">Razon de la visita:</p>
+                <p className="border-gray-400 mx-8 flex justify-end">Razon de la visita:</p>
                 <p>{item.visitReason}</p>
               </div>
               <div className="grid grid-cols-2 m-1 items-center">
-                <p className="border-gray-400 mx-8 ">Sintomas:</p>
+                <p className="border-gray-400 mx-8 flex justify-end">Signos y sintomas:</p>
                 <p>{item.symptoms}</p>
               </div>
               <div className="grid grid-cols-2 m-1 items-center">
-                <p className="border-gray-400 mx-8 ">Diagnostico:</p>
+                <p className="border-gray-400 mx-8 flex justify-end">Diagnostico:</p>
                 <p>{item.diagnostic}</p>
               </div>
               <div className="grid grid-cols-2 m-1 items-center">
-                <p className="border-gray-400 mx-8 ">
+                <p className="border-gray-400 mx-8 flex justify-end">
                   Tratamiento en la clinica:
                 </p>
                 <p>{item.clinicTreatment}</p>
               </div>
               <div className="grid grid-cols-2 m-1 items-center">
-                <p className="border-gray-400 mx-8 ">Tratamiento Indicado:</p>
+                <p className="border-gray-400 mx-8 flex justify-end">Tratamiento Indicado:</p>
                 <p>{item.houseTreatment}</p>
               </div>
               <div className="grid grid-cols-2 m-1 items-center">
-                <p className="border-gray-400 mx-8 ">Tratamiento Realizados:</p>
+                <p className="border-gray-400 mx-8 flex justify-end">Tratamiento Realizados:</p>
                 <p>{item.exams}</p>
               </div>
               {/*If there is any file, show the files section*/}
