@@ -179,14 +179,32 @@ const AddNewVisit = () => {
                   required
                   autoFocus
                 />
-                <label className="">Síntomas</label>
+                <label className="">Signos y síntomas</label>
                 <textarea
                   onChange={(e) =>
                     setFormData({ ...formData, symptoms: e.target.value })
                   }
                   className="p-3 my-2 border border-black rounded"
-                  placeholder="Sintomas"
+                  placeholder="Signos y síntomas"
                   value={formData.symptoms}
+                />
+                <label className="">Examenes Realizados</label>
+                <textarea
+                  onChange={(e) =>
+                    setFormData({ ...formData, exams: e.target.value })
+                  }
+                  className="p-3 my-2 border border-black rounded"
+                  placeholder="Examenes Realizados"
+                  value={formData.exams}
+                />
+                
+                <label className="py-2">Agregar Examenes</label>
+                <input
+                  className="form-control w-full px-3 py-1.5 mb-3 border border-solid border-black rounded transition ease-in-out m-0"
+                  type="file"
+                  onChange={(e) => {
+                    uploadFile(e.target.files[0]);
+                  }}
                 />
                 <label className="">Diagnostico</label>
                 <textarea
@@ -218,24 +236,7 @@ const AddNewVisit = () => {
                   placeholder="Tratamiento Indicado"
                   value={formData.houseTreatment}
                 />
-                <label className="">Examenes Realizados</label>
-                <textarea
-                  onChange={(e) =>
-                    setFormData({ ...formData, exams: e.target.value })
-                  }
-                  className="p-3 my-2 border border-black rounded"
-                  placeholder="Examenes Realizados"
-                  value={formData.exams}
-                />
                 
-                <label className="py-2">Subir Archivo</label>
-                <input
-                  className="form-control w-full px-3 py-1.5 border border-solid border-black rounded transition ease-in-out m-0"
-                  type="file"
-                  onChange={(e) => {
-                    uploadFile(e.target.files[0]);
-                  }}
-                />
               
               <label className="pt-2">Vacunas</label>
               <div className=" p-3 my-2 border border-black rounded grid grid-cols-2 min-h-fit">

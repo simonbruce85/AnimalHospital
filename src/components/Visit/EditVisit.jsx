@@ -162,33 +162,36 @@ navigate("/visit")
           value={formData.diagnostic}
         ></input>
       </p>
-      <p className="">
+      <p className="flex items-center ">
         Tratamiento en la clinica:{" "}
-        <input
-          className="border rounded-lg border-black pl-2 w-1/2"
+        <textarea
+          className="border rounded-lg border-black ml-2 w-1/2"
           onChange={(e) =>
             setFormData({ ...formData, clinicTreatment: e.target.value })
           }
           value={formData.clinicTreatment}
-        ></input>
+          rows="3"
+        ></textarea>
       </p>
-      <p className="">
+      <p className=" flex items-center">
         Tratamiento Indicado:{" "}
-        <input
-          className="border rounded-lg border-black pl-2 w-1/2"
+        <textarea
+          className="border rounded-lg border-black ml-2 w-1/2"
           onChange={(e) =>
             setFormData({ ...formData, houseTreatment: e.target.value })
           }
           value={formData.houseTreatment}
-        ></input>
+          rows="3"
+        ></textarea>
       </p>
-      <p className="">
+      <p className=" flex items-center">
         Examenes Realizados:{" "}
-        <input
-          className="border rounded-lg border-black pl-2 w-1/2"
+        <textarea
+          className="border rounded-lg border-black ml-2 w-1/2"
           onChange={(e) => setFormData({ ...formData, exams: e.target.value })}
           value={formData.exams}
-        ></input>
+          rows='3'
+        ></textarea>
       </p>
       {/*If there is any file, show the files section*/}
       {item.imgFile.imgName.length > 0 && (
