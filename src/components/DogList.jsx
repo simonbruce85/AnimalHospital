@@ -20,13 +20,12 @@ const DogList = () => {
   const [dogs, setDogs] = useState([]);
   const [search, setSearch] = useState("");
   const { user } = UserAuth();
-  const matrix = [];
   useEffect(() => {
     dogsCalla();
   }, [user?.email]);
 
   const q = query(collection(db, "users"), orderBy("dogNamelow", "asc"));
-const dogsCalla = () => { onSnapshot(q, (querySnapshot) => {
+const dogsCalla = () => {onSnapshot(q, (querySnapshot) => {
   setDogs(
     querySnapshot.docs.map((doc) => ({
       id: doc.id,
@@ -45,7 +44,6 @@ const dogsCalla = () => { onSnapshot(q, (querySnapshot) => {
   return (
     <div >
       <Sidebar />
-    
     <div className="pt-16 h-full  px-2 md:pt-4 md:ml-[100px]  lg:ml-[140px]">
       <div className="h-full border border-gray-900 text-white rounded-lg ">
         <div className="flex items-center">

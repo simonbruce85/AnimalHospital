@@ -8,6 +8,7 @@ import { db, storage } from "../firebase";
 import { doc, updateDoc } from "firebase/firestore";
 import { v4 } from "uuid";
 import Sidebar from "../components/Sidebar";
+import dogBack from "../assets/dogBack.jpeg";
 const DogDetails = () => {
   const { state } = useLocation();
   const navigate = useNavigate();
@@ -97,10 +98,9 @@ const DogDetails = () => {
   return (
     <>
       <Sidebar />
-    <div className="w-full px-4 sm:px-16 md:px-0 min-h-screen h-full flex justify-center items-center  bg-[#f8e5f9]">
-      <div className=" md:ml-[180px] w-full lg:ml-[140px] xl:ml-0 lg:w-9/12 lg:flex min-h-[90vh] h-full pt-16 ">
+    <div className="w-full px-4 sm:px-16 md:px-0 min-h-screen h-full flex justify-center items-center  bg-[#e6dde6] " >
+      <div className=" md:ml-[180px] w-full lg:ml-[140px] xl:ml-0 lg:w-9/12 lg:flex min-h-[90vh] h-full pt-16 mb-4">
         <div className="md:max-w-[80%] lg:w-1/3 flex flex-col md:pt-8 lg:pt-16 items-center lg:pr-2 xl:pr-0">
-          
           <div className="min-w-fit relative flex justify-center items-center mb-4 ">
           {showMore?(<>
             <img
@@ -111,7 +111,7 @@ const DogDetails = () => {
             <div className="flex flex-col justify-center items-center absolute ">
               
               <input
-                className="bg-[#99599d] flex p-1  rounded-lg text-gray-300 hover:scale-105 w-[107px] "
+                className="bg-[#99599d] flex p-1  rounded-lg text-gray-300 hover:scale-105 w-[105px] "
                 type="file"
                 onChange={(e) => {
                   uploadFile(e.target.files[0]);
@@ -142,6 +142,11 @@ const DogDetails = () => {
             <p>{ownersName}</p>
             <p>{phone}</p>
             <p>{address}</p>
+            <button
+                  className="h-fit bg-[#99599d] p-1 px-2 m-1 flex items-center justify-center rounded-full text-gray-300 hover:scale-105 w-full"
+                >
+                  Agregar Visita
+                </button>
           </div>
           
         </div>
